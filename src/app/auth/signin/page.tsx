@@ -1,11 +1,9 @@
 // import { GoogleLoginColorLightStateSignUpPillTrue } from "../GoogleLoginColorLightStateSignUpPillTrue/GoogleLoginColorLightStateSignUpPillTrue";
 // import { AppleIdLoginColorWhiteTypeSignInIconOnlyFalse } from "../AppleIdLoginColorWhiteTypeSignInIconOnlyFalse/AppleIdLoginColorWhiteTypeSignInIconOnlyFalse";
 
-export interface ISignInPageProps {
-  className?: string;
-}
 
-const SignInPage = ({ className, ...props }: ISignInPageProps): JSX.Element => {
+
+const SignInPage = ({ className, ...props }: any): JSX.Element => {
   return (
     <>
       {" "}

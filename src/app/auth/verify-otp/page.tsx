@@ -1,11 +1,9 @@
-export interface IOtpVerificationProps {
-    className?: string;
-  }
+
   
  const OtpVerification = ({
     className,
     ...props
-  }: IOtpVerificationProps): JSX.Element => {
+  }: any): JSX.Element => {
     return (
    
       <>

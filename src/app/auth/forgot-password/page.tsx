@@ -1,10 +1,7 @@
-export interface IForgetPasswordProps {
-  className?: string;
-}
 const ForgetPassword = ({
   className,
   ...props
-}: IForgetPasswordProps): JSX.Element => {
+}: any): JSX.Element => {
   return (
 
     <>

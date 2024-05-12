@@ -10,7 +10,6 @@ import {
   TableRow,
   TableCell,
   Pagination,
-  getKeyValue,
 } from "@nextui-org/react";
 
 const Order = () => {
@@ -20,7 +19,7 @@ const Order = () => {
   const columns = [
     { key: "order", label: "Order#" },
     { key: "product", label: "Product" },
-    { key: "purchasedDate", label: "Dat Purchased" },
+    { key: "purchasedDate", label: "Date Purchased" },
     { key: "total", label: "Total" },
     { key: "type", label: "Type" },
   ];
@@ -38,85 +37,16 @@ const Order = () => {
       },
     },
     {
-      key: "1",
+      key: "2",
       values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
+        order: "#12345",
+        product: "31",
+        purchasedDate: "Nov 11, 2023",
+        total: "3,433",
         type: "invoice",
       },
     },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
-    {
-      key: "1",
-      values: {
-        order: "#12344",
-        product: "30",
-        purchasedDate: "Nov 10, 2023",
-        total: "3,432",
-        type: "invoice",
-      },
-    },
+    // Add more rows as needed
   ];
 
   const pages = Math.ceil(rows.length / rowsPerPage);
@@ -162,7 +92,7 @@ const Order = () => {
           ))}
         </TableHeader>
         <TableBody>
-          {items.map((row) => (
+          {items.map((row:any) => (
             <TableRow key={row.key} className="bg-[#FFF3E3]">
               {columns.map((column) => (
                 <TableCell className="py-8 px-4" key={column.key}>
@@ -177,4 +107,4 @@ const Order = () => {
   );
 }
 
-export default Order
+export default Order;
