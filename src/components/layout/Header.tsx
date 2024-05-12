@@ -3,8 +3,6 @@
 import MenuIcon from "@mui/icons-material/Menu";
 import { Person, Search, ShoppingCart } from "@mui/icons-material";
 import Image from "next/image";
-// import IconButton from "@lib/button/IconButton";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import IconButton from "@lib/button/IconButton";
 
@@ -38,25 +36,26 @@ export const Header = () => {
         {menuItems.map(({ title, path }, index) => (
           <button
             key={index}
+            onClick={()=>router.push(path)}
             className="group relative inline-block overflow-hidden rounded  w-24 py-3 text-sm font-medium   "
           >
-            <Link href={path} className="">
+            {/* <Link href={path} className=""> */}
               {title}
-            </Link>
+            {/* </Link> */}
             <span className="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-ms_white transition-all duration-200 group-hover:w-full"></span>
             <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-ms_white transition-all duration-200 group-hover:w-full"></span>
           </button>
         ))}
       </div>
       <div className="hidden md:flex gap-5">
-        {/* <IconButton icon={Search} />
+        <IconButton icon={Search} />
         <IconButton icon={ShoppingCart} onClick={()=>router.push("/cart")}/>
         <IconButton
           icon={Person}
           onClick={() => {
             router.push(`/${user}`);
           }}
-        /> */}
+        />
       </div>
     </nav>
   );
