@@ -1,4 +1,5 @@
 import { Footer, Header } from "@components/layout";
+import BottomNav from "@components/layout/BottomNav";
 
 export default function NavigationLayout({
   children, // will be a page or nested layout
@@ -13,6 +14,7 @@ export default function NavigationLayout({
       <Header />
       <div className="mt-[88px]">{children}</div>
       <Footer />
+      <BottomNav />
     </section>
   );
 }

@@ -2,7 +2,9 @@
 // import { AppleIdLoginColorWhiteTypeSignInIconOnlyFalse } from "../AppleIdLoginColorWhiteTypeSignInIconOnlyFalse/AppleIdLoginColorWhiteTypeSignInIconOnlyFalse";
 // import { CheckboxBaseActiveFalse } from "../CheckboxBaseActiveFalse/CheckboxBaseActiveFalse";
 
-
+export interface ISignupPageProps {
+  className?: string;
+}
 
  const SignupPage = ({
   className,

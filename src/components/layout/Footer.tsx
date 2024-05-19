@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const Footer = (): JSX.Element => {
   return (
-    <div className="bg-primary text-ms_text h-[414px] relative overflow-hidden  flex flex-col justify-center items-center">
+    <div className="bg-primary text-ms_text h-[414px] relative overflow-hidden hidden  lg:flex flex-col justify-center items-center">
       <div className=" h-[338px]   top-10 overflow-hidden">
         <div className="flex flex-col gap-20 items-center justify-start  left-[calc(50%_-_640px)] top-0 overflow-hidden">
           <div className="flex flex-row items-start justify-between self-stretch shrink-0 relative overflow-hidden">

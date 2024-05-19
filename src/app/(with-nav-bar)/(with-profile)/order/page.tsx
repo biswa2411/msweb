@@ -10,6 +10,7 @@ import {
   TableRow,
   TableCell,
   Pagination,
+  getKeyValue,
 } from "@nextui-org/react";
 
 const Order = () => {
@@ -19,13 +20,13 @@ const Order = () => {
   const columns = [
     { key: "order", label: "Order#" },
     { key: "product", label: "Product" },
-    { key: "purchasedDate", label: "Date Purchased" },
+    { key: "purchasedDate", label: "Dat Purchased" },
     { key: "total", label: "Total" },
     { key: "type", label: "Type" },
   ];
 
   // Dummy data for rows
-  const rows = [
+  const rows:any = [
     {
       key: "1",
       values: {
@@ -37,16 +38,85 @@ const Order = () => {
       },
     },
     {
-      key: "2",
+      key: "",
       values: {
-        order: "#12345",
-        product: "31",
-        purchasedDate: "Nov 11, 2023",
-        total: "3,433",
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
         type: "invoice",
       },
     },
-    // Add more rows as needed
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
+    {
+      key: "1",
+      values: {
+        order: "#12344",
+        product: "30",
+        purchasedDate: "Nov 10, 2023",
+        total: "3,432",
+        type: "invoice",
+      },
+    },
   ];
 
   const pages = Math.ceil(rows.length / rowsPerPage);
@@ -107,4 +177,4 @@ const Order = () => {
   );
 }
 
-export default Order;
+export default Order

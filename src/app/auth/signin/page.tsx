@@ -2,7 +2,6 @@
 // import { AppleIdLoginColorWhiteTypeSignInIconOnlyFalse } from "../AppleIdLoginColorWhiteTypeSignInIconOnlyFalse/AppleIdLoginColorWhiteTypeSignInIconOnlyFalse";
 
 
-
 const SignInPage = ({ className, ...props }: any): JSX.Element => {
   return (
     <>

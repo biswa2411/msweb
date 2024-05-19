@@ -1,14 +1,9 @@
-"use client"
-import {  useRouter } from "next/navigation";
 
-
-export default function Home() {
-
-  const router =useRouter()
+export default  function Home() {
 
   return (
     <section className="h-screen w-screen">
-      <div onClick={()=>router.push("/about")} className="shadow-custom h-10 p-10 m-10 mt-96 w-max">Click on me</div>
+      <div className="shadow-custom h-10 p-10 m-10 mt-96">Home</div>
     </section>
   );  
 }
