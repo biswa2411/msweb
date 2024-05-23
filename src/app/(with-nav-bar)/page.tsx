@@ -1,9 +1,18 @@
+"use client"
+import Gallery from '@components/pages/home/Gallery';
+import HeroSection from '@components/pages/home/HeroSection';
+import AwesomeSlider from 'react-awesome-slider';
+import 'react-awesome-slider/dist/styles.css';
 
-export default  function Home() {
+
+const Home = () => {
 
   return (
-    <section className="h-screen w-screen">
-      <div className="shadow-custom h-10 p-10 m-10 mt-96">Home</div>
-    </section>
-  );  
+    <>
+      <HeroSection />
+      <Gallery/>
+    </>
+  );
 }
+
+export default Home
