@@ -49,3 +49,16 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   border: 3px solid #f1f1f1;
 }
+
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  background: #888 !important;
+  border-radius: 20% !important;
+  height: 5px !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0E2920 !important;
+  width: 20px !important;
+}

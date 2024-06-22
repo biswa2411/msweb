@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+
 export default function DashboardLayout({
   children, // will be a page or nested layout
 }: {
@@ -19,7 +20,7 @@ export default function DashboardLayout({
         <img
           className="rounded-[32px] w-[656px] h-[904px] absolute left-[724px] top-[60px]"
           style={{ objectFit: "cover" }}
-          src={'/images.jpeg'}
+          src={'/auth/auth1.jpg'}
         />
         {/* <Image src={'/images.jpeg'} alt="logo" width={656} height={904}/> */}
         <div className="flex flex-row gap-8 items-start justify-start absolute left-[804px] top-[852px]">
