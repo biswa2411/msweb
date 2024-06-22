@@ -25,7 +25,7 @@ const Gallery = () => {
                     <img src="/home/hero/hh1.jpg" className='h-[519px] w-[519px]  object-cover rounded-2xl' /> */}
 
                     <Swiper
-                        slidesPerView={2}
+                        slidesPerView={3}
                         spaceBetween={70}
                         navigation={true}
 
