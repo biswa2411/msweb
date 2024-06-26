@@ -57,9 +57,10 @@ const SignupPage = ({
       {/* <Link href={"/auth/forget-password"} className="text-[#ffffff] text-left font-['Poppins-Regular',_sans-serif] text-xs font-normal cursor-pointer w-full justify-end flex">
         Forget Password?{" "}
       </Link> */}
-      <div className="bg-[#fff3e3] rounded-[40px] pt-4 pr-6 pb-4 pl-6 flex flex-col gap-0 items-center justify-center  h-14 w-full  left-[calc(50%_-_585px)] top-[688px] overflow-hidden cursor-pointer">
+      <div className="bg-[#fff3e3] hover:bg-[#ded6cc] active:bg-[#bfb5a9] rounded-[40px] pt-4 pr-6 pb-4 pl-6 flex flex-col gap-0 items-center justify-center w-full h-14  left-[calc(50%_-_585px)] top-[688px] overflow-hidden cursor-pointer"
+        onClick={() => router.push("/")}>
         <div className="text-[#0e2920] text-left font-['InstagramSans-Bold',_sans-serif] text-base font-bold uppercase relative">
-          Sign up{" "}
+          Sign Up{" "}
         </div>
       </div>
 

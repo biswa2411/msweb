@@ -6,7 +6,7 @@ import Image from "next/image";
 // import IconButton from "@lib/button/IconButton";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import IconButton from "@lib/button/IconButton";
+import IconButton from "@components/lib/buttons/IconButton";
 import { useState } from "react";
 import { Box, Divider, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 

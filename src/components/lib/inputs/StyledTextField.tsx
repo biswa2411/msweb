@@ -25,10 +25,18 @@ const StyledTextField = (props: any) => {
         },
         '& .MuiInputLabel-root': {
             color: '#FFF3E3', // Label color when input is blank
+            
             '&.Mui-focused': {
                 color: '#B88E2F', // Label color when focused
+                // fontSize: '20px', // Label font size
+                fontWeight: 'bold',
             },
         },
+        // '& .MuiInputLabel-shrink': {
+        //     fontSize: '30px', // Label font size when shrink
+        //     fontWeight: 'bold', // Label font weight when shrink
+        //   },
+      
     };
 
     return (
