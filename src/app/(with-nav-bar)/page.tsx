@@ -1,7 +1,7 @@
 "use client"
 import Gallery from '@components/pages/home/Gallery';
+import GoogleReviews from '@components/pages/home/GoogleReviews';
 import HeroSection from '@components/pages/home/HeroSection';
-import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 
 
@@ -11,6 +11,7 @@ const Home = () => {
     <>
       <HeroSection />
       <Gallery/>
+      <GoogleReviews/>
     </>
   );
 }
