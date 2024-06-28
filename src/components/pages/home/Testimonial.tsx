@@ -1,13 +1,15 @@
+
+import TestimonialCarousel from '@components/lib/carousel/TestimonialCarousel';
 import axios from 'axios';
 import React from 'react'
+import { Autoplay, Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 const GoogleReviews = () => {
 
-  const fetchGoogleReviews = async (placeId:any, apiKey:any) => {
+  const fetchGoogleReviews = async (placeId: any, apiKey: any) => {
     try {
       const response = await axios.get(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,reviews&key=${apiKey}`);
-      
-      console.log("🚀 ~ fetchGoogleReviews ~ response:", response)
       if (response.data.result) {
         return response.data.result.reviews;
       } else {
@@ -18,13 +20,12 @@ const GoogleReviews = () => {
       return [];
     }
   };
-  console.log("🚀 ~ fetchGoogleReviews ~ fetchGoogleReviews:", fetchGoogleReviews("aaa", "aaa"))
+  const items = ["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp", "/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp", "/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"]
 
-  
   return (
-    <div className='h-96'>
-ihiii
-    </div>
+
+    <TestimonialCarousel />
+
   )
 }
 

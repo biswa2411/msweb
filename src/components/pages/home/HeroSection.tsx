@@ -13,13 +13,13 @@ const HeroSection = () => {
         },
     };
     return (
-        <section className="h-[700px] flex items-center w-full p-14 bg-white">
+        <section className="h-[700px] flex items-center w-full p-14 bg-primary">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={70}
                 loop={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 5000,
                     disableOnInteraction: false,
                 }}
                 pagination={pagination}
@@ -28,12 +28,25 @@ const HeroSection = () => {
 
                 className="mySwiper"
             >
-                {["/home/hero/hh1.jpg", "/home/hero/hh2.jpg", "/home/hero/hh3.jpg", "/home/hero/hh4.jpg"].map((item, i) => {
+                {["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"].map((item, i) => {
                     return (
                         <SwiperSlide key={i}>
-                            <div className='h-[620px] w-full '>
-                            <Image priority  loading="eager" layout='fill' src={item} alt={`hero-image-${i}`} objectFit={"fill"} className='rounded-xl'  />
-                            </div>
+
+                            <div className='flex w-full justify-center relative'>
+
+                                <div className="relative group w-fit h-[620px] rounded-xl overflow-hidden cursor-pointer">
+                                    <img
+                                        src={item}
+                                        alt={`hero-image-${i}`}
+                                        className="w-full h-full object-contain bg-red-400"
+                                    />
+                                    <div className="absolute inset-0 flex items-end justify-end p-20 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <button className="bg-primary text-white text-xl font-bold py-4 px-6 rounded-md shadow-lg hover:bg-primary_lite">
+                                            Buy Now
+                                        </button>
+                                    </div>
+                                </div>  </div>
+
                         </SwiperSlide>
                     )
                 })}
