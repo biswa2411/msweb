@@ -5,31 +5,34 @@ import { useSpringCarousel } from 'react-spring-carousel';
 
 const mockItems = [
     {
-        id: 'item-1',
+        id: '1',
         rating: 3.2,
-        title: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .',
+        image: 'https://lh3.googleusercontent.com/a-/ALV-UjVTNs3urQZpoh1qJrPBtNeg5vcPWhoiC1XoDRJVWBBOj4MhLCrjqA=w60-h60-p-rp-mo-ba5-br100'
+
     },
     {
-        id: 'item-2',
+        id: '2',
         rating: 2.8,
-        title: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
     },
     {
-        id: 'item-3',
+        id: '3',
         rating: 4.5,
-        title: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
     },
     {
-        id: 'item-4',
+        id: '4',
         rating: 3.8,
-        title: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
     },
     {
-        id: 'item-5',
+        id: '5',
         rating: 1.8,
-        title: 'Korem ipsum dolor sit amet, consectetur adet condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        content: 'Korem ipsum dolor sit amet, consectetur adet condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
     }
 ];
+
 
 const TestimonialCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -55,9 +58,11 @@ const TestimonialCarousel = () => {
                         zIndex: activeIndex === index ? 10 : 1
                     }}
                 >
-                    <div className='flex flex-col gap-2 items-center justify-center '><div className='h-20 w-20 rounded-full bg-gray-500' />
+                    <div className='flex flex-col gap-2 items-center justify-center '>
+
+                   {item?.image? <img src={item?.image} alt="ss"  className='h-20 w-20 rounded-full' />:<div className='h-20 w-20 rounded-full bg-gray-500' />}
                         <Rating readOnly name="half-rating" defaultValue={item.rating} precision={0.1} /></div>
-                    <p className=' w-4/5 text-center text-sm'> {item.title}</p>
+                    <p className=' w-4/5 text-center text-sm'> {item.content}</p>
                 </div>
             )
         }))
