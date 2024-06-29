@@ -6,32 +6,36 @@ import { useSpringCarousel } from 'react-spring-carousel';
 const mockItems = [
     {
         id: '1',
-        rating: 3.2,
-        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .',
-        image: 'https://lh3.googleusercontent.com/a-/ALV-UjVTNs3urQZpoh1qJrPBtNeg5vcPWhoiC1XoDRJVWBBOj4MhLCrjqA=w60-h60-p-rp-mo-ba5-br100'
+        rating: 5,
+        content: 'MS Art Life can transformed cherished memories into breathtaking digital paintings. Their precision with pen-tab and stylus brought out every delicate detail. The high-quality printing on premium paper or canvas, coupled with custom frame designs, truly elevated the artwork. Fast delivery and hassle-free refund/replacement make them a reliable choice. Highly recommend!.',
+        image: `https://lh3.googleusercontent.com/a-/ALV-UjVTNs3urQZpoh1qJrPBtNeg5vcPWhoiC1XoDRJVWBBOj4MhLCrjqA=w75-h75-p-rp-mo-ba5-br100`
 
     },
+
     {
         id: '2',
-        rating: 2.8,
-        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        rating: 5,
+        content: `Incredible experience, the art that they make is really overwhelming and amazing. Book your art now If you already haven't.`,
+        image: `https://lh3.googleusercontent.com/a-/ALV-UjVptWvY9NySZ68CNLMbAf3cEO75TQ-zD-4QAuhBYYF5CWDDMohLBg=w75-h75-p-rp-mo-br100`
     },
+
     {
         id: '3',
-        rating: 4.5,
-        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        rating: 5,
+        content: 'The best art shop ever. Quality of the product was really fantastic and eye catching... Just go for it...!!',
+        image: `https://lh3.googleusercontent.com/a-/ALV-UjUJHWCkFISY1CxO6sAU2xp4Lx2sMZJ1s95M0dQI407vi3miOUgj=w75-h75-p-rp-mo-br100`
     },
     {
         id: '4',
-        rating: 3.8,
-        content: 'Korem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
-    },
-    {
-        id: '5',
-        rating: 1.8,
-        content: 'Korem ipsum dolor sit amet, consectetur adet condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, .'
+        rating: 5,
+        content: `It's a genuine quality product..I love it. Finishing work.`,
+        image: `https://lh3.googleusercontent.com/a-/ALV-UjXwIsXiW9F34F7RzVEAc135e7w02hwrOHEwK4lrBpLY_Q_foSla-A=w75-h75-p-rp-mo-ba3-br100`
+
     }
+
+
 ];
+
 
 
 const TestimonialCarousel = () => {
@@ -60,7 +64,7 @@ const TestimonialCarousel = () => {
                 >
                     <div className='flex flex-col gap-2 items-center justify-center '>
 
-                   {item?.image? <img src={item?.image} alt="ss"  className='h-20 w-20 rounded-full' />:<div className='h-20 w-20 rounded-full bg-gray-500' />}
+                        {item?.image ? <img src={item?.image} alt="ss" className='h-20 w-20 rounded-full' /> : <div className='h-20 w-20 rounded-full bg-gray-500' />}
                         <Rating readOnly name="half-rating" defaultValue={item.rating} precision={0.1} /></div>
                     <p className=' w-4/5 text-center text-sm'> {item.content}</p>
                 </div>
