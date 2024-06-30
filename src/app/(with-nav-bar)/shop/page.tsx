@@ -27,12 +27,12 @@ const Shop = () => {
   ];
 
   return (
-    <div className="p-[5%]">
+    <div className="p-[5%] flex justify-around items-center">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
         {shoppingItems.map((items, index) => (
           <div key={index} className="border hover:border-[#0E2920] rounded-lg">
             <div className="">
-            <Link href={`/productInfo`}>
+            <Link href={`/product-info`}>
               <Image
                 src={items.img}
                 alt="profile image"

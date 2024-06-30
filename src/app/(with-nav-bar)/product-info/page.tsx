@@ -1,4 +1,5 @@
-"use client"
+
+"use client";
 
 import { Rating } from "@mui/material";
 import Image from "next/image";
@@ -13,19 +14,19 @@ const ProductInfo = () => {
 
   const smallImages = [
     {
-      img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714780800&semt=sph",
+      img: "/productInfo/img1.svg",
     },
     {
-      img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714780800&semt=sph",
+      img: "/productInfo/img2.svg",
     },
     {
-      img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714780800&semt=sph",
+      img: "/productInfo/img3.svg",
     },
     {
-      img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714780800&semt=sph",
+      img: "/productInfo/img4.svg",
     },
     {
-      img: "https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg?size=338&ext=jpg&ga=GA1.1.553209589.1714780800&semt=sph",
+      img: "/productInfo/img5.svg",
     },
   ];
 
@@ -77,6 +78,8 @@ const ProductInfo = () => {
     },
   ];
 
+  const [selectedImage, setSelectedImage] = useState(smallImages[0].img);
+
   return (
     <>
       <div className="p-[5%]">
@@ -85,8 +88,8 @@ const ProductInfo = () => {
             <div className="md:flex justify-between items-start">
               <div className="flex flex-row md:flex-col  gap-1 cursor-pointer">
                 {smallImages.map((items, index) => (
-                  <div key={index}>
-                    <img
+                  <div key={index} onClick={() => setSelectedImage(items.img)}>
+                    <Image
                       src={items.img}
                       alt="profile image"
                       height={150}
@@ -96,11 +99,11 @@ const ProductInfo = () => {
                   </div>
                 ))}
               </div>
-              <img
-                src={"/shopImage.svg"}
+              <Image
+                src={selectedImage}
                 alt="profile image"
-                height={470}
-                width={470}
+                height={600}
+                width={600}
                 className="flex justify-center items-center"
               />
             </div>
@@ -266,10 +269,10 @@ const ProductInfo = () => {
               <div>
                 {additionalInfo.map((info, index) => (
                   <div
-                    className="flex bg-[#F0F0F0] gap-10 py-2 border border-b-gray-300 px-4"
+                    className="flex bg-[#F0F0F0] gap-1 py-2 border border-b-gray-300 px-4"
                     key={index}
                   >
-                    <p>
+                    <p className="font-semibold">
                       {info.label}
                       {":"}
                     </p>
