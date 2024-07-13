@@ -1,6 +1,6 @@
-
 "use client";
 
+import Shop from "@components/pages/shop";
 import { Rating } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,8 +81,8 @@ const ProductInfo = () => {
   const [selectedImage, setSelectedImage] = useState(smallImages[0].img);
 
   return (
-    <>
-      <div className="p-[5%]">
+    <div className="px-[10%] py-[5%]">
+      <div className="">
         <div className="flex-row md:flex gap-3">
           <div className="md:w-[50%] ">
             <div className="md:flex justify-between items-start">
@@ -104,11 +104,11 @@ const ProductInfo = () => {
                 alt="profile image"
                 height={600}
                 width={600}
-                className="flex justify-center items-center"
+                className="flex justify-center items-center rounded-lg"
               />
             </div>
             <div className="flex justify-between py-[2%] gap-2">
-              <div className="flex justify-center items-center gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
+              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
                 <Image
                   src="/shopVan.svg"
                   alt="profile image"
@@ -117,7 +117,7 @@ const ProductInfo = () => {
                 />
                 <button className="">Add to Cart</button>
               </div>
-              <div className="flex justify-center items-center gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
+              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
                 <Image
                   src="/shopVan.svg"
                   alt="profile image"
@@ -302,7 +302,8 @@ const ProductInfo = () => {
         </div>
       </div>
       {/* Related Products */}
-      <div className="bg-[#F0F0F0] py-[3%] px-[5%]">
+      <Shop />
+      {/* <div className="bg-[#F0F0F0] py-[3%] px-[5%]">
         <h3 className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold pb-[3%]">
           Related Products
         </h3>
@@ -337,8 +338,8 @@ const ProductInfo = () => {
             </div>
           ))}
         </div>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 };
 

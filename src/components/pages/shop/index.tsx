@@ -27,11 +27,13 @@ const Shop = () => {
     ];
 
     return (
-
-        <div className="flex justify-between w-full gap-4 ">
+        <div className="flex justify-between w-full gap-4">
             {shoppingItems.map((items, index) => (
-                <div key={index} className="shadow-custom h-fit w-[450px] rounded-lg  p-1 justify-start flex flex-col  items-center gap-2 ">
-
+                <Link 
+                    key={index} 
+                    href={`/product-info/${items.id}`}
+                    className="shadow-custom h-fit w-[450px] rounded-lg p-1 justify-start flex flex-col items-center gap-2"
+                >
                     <div className="h-[350px] w-full">
                         <img
                             src={items.img}
@@ -39,7 +41,7 @@ const Shop = () => {
                             className="rounded-lg h-full w-full"
                         />
                     </div>
-                    <div className="flex justify-between items-center  px-2  w-full ">
+                    <div className="flex justify-between items-center px-2 w-full">
                         <p className="font-bold text-[#000000] text-[16px] md:text-[20px]">
                             {items.paintingType}
                         </p>
@@ -48,7 +50,7 @@ const Shop = () => {
                             <p>{items.price}</p>
                         </button>
                     </div>
-                </div>
+                </Link>
             ))}
         </div>
     );
