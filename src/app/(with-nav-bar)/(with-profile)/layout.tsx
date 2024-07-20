@@ -1,6 +1,8 @@
-import { Footer, Header } from "@components/layout";
+"use client"
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavigationLayout({
   children, // will be a page or nested layout
@@ -8,8 +10,9 @@ export default function NavigationLayout({
   children: React.ReactNode;
 }) {
   const menuId = "primary-search-account-menu";
+  const router = usePathname();
 
-  const profile_sidebar = [
+  const profileSidebar = [
     { icon: "/profileIcon.svg", link: "/profile", Title: "Profile" },
     { icon: "/ordersIcon.svg", link: "/order", Title: "Orders" },
     { icon: "/helpIcon.svg", link: "/support", Title: "Help & Support" },
@@ -43,14 +46,16 @@ export default function NavigationLayout({
             John Perry
           </div>
           <ul className="w-full">
-            {profile_sidebar.map(({ link, icon, Title }, key) => (
+            {profileSidebar.map(({ link, icon, Title }, key) => (
               <li
                 key={key}
-                className="mb-5 w-full px-5 py-2 hover:border-l-4 border-primary"
+                className={`mb-5 w-full px-5 py-2 hover:border-l-4 border-primary ${
+                  router === link ? "text-primary" : "text-gray-300"
+                }`}
               >
                 <Link
                   href={link}
-                  className="hover:text-primary font-semibold text-[20px] text-gray-300 flex gap-3 "
+                  className="hover:text-primary font-semibold text-[20px] flex gap-3 "
                 >
                   <Image
                     src={icon}
@@ -58,7 +63,7 @@ export default function NavigationLayout({
                     height={30}
                     width={30}
                     className="flex justify-center items-center"
-                  />  
+                  />
                   {Title}{" "}
                 </Link>
               </li>
@@ -78,7 +83,7 @@ export default function NavigationLayout({
           </ul>
         </div>
       </div>
-      <div className="w-full h-[100vh]">{children} </div>
+      <div className="w-full h-full">{children} </div>
     </section>
   );
 }
