@@ -27,12 +27,12 @@ const Shop = () => {
     ];
 
     return (
-        <div className="flex justify-between w-full gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {shoppingItems.map((items, index) => (
                 <Link 
                     key={index} 
                     href={`/product-info/${items.id}`}
-                    className="shadow-custom h-fit w-[450px] rounded-lg p-1 justify-start flex flex-col items-center gap-2"
+                    className="shadow-custom h-fit rounded-lg p-1 justify-start flex flex-col items-center gap-2"
                 >
                     <div className="h-[350px] w-full">
                         <img
