@@ -1,6 +1,5 @@
 "use client";
 
-import { Footer, Header } from "@components/layout";
 import React, { useState, useMemo } from "react";
 import {
   Table,
@@ -10,7 +9,6 @@ import {
   TableRow,
   TableCell,
   Pagination,
-  getKeyValue,
 } from "@nextui-org/react";
 
 const Order = () => {
@@ -26,7 +24,7 @@ const Order = () => {
   ];
 
   // Dummy data for rows
-  const rows:any = [
+  const rows = [
     {
       key: "1",
       values: {
@@ -143,7 +141,7 @@ const Order = () => {
               page={page}
               total={pages}
               onChange={(page) => setPage(page)}
-              className=""
+              className="overflow-hidden"
             />
           </div>
         }
@@ -162,7 +160,7 @@ const Order = () => {
           ))}
         </TableHeader>
         <TableBody>
-          {items.map((row:any) => (
+          {items.map((row: any) => (
             <TableRow key={row.key} className="bg-[#FFF3E3]">
               {columns.map((column) => (
                 <TableCell className="py-8 px-4" key={column.key}>

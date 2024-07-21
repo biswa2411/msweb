@@ -1,105 +1,132 @@
-'use client'
-import { Facebook, Instagram, Twitter } from "@mui/icons-material";
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export const Footer = (): JSX.Element => {
+  const links = [
+    { name: "Home", link: "/" },
+    { name: "Shop", link: "/shop" },
+    { name: "About", link: "/about" },
+    { name: "Contact us", link: "/contact-us" },
+    { name: "Find us at Google Maps", link: "/#" },
+  ];
+
+  const help = [
+    { name: "Payment Policy", link: "/payment-policy" },
+    { name: "Privacy Policy", link: "/privacy-policy" },
+    { name: "Terms of Service", link: "/terms-of-service" },
+    {
+      name: "Cancellation, Refund and Returns Policy",
+      link: "/refund-return-policy",
+    },
+  ];
+
+  const socialMedia = [
+    {
+      name: "Facebook",
+      link: "/",
+      img: "/footer/facebook.svg",
+      alt: "facebook",
+    },
+    {
+      name: "Instagram",
+      link: "/",
+      img: "/footer/instagram.svg",
+      alt: "instagram",
+    },
+    { name: "Twitter", link: "/", img: "/footer/twitter.svg", alt: "twitter" },
+  ];
+
+  const [email, setEmail] = useState("");
+
+  const handleEmailChange = (e: any) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log("email----->", email);
+    setEmail("");
+  };
+
   return (
-    <div className="bg-primary text-ms_text h-[414px] relative overflow-hidden hidden  lg:flex flex-col justify-center items-center">
-      <div className=" h-[338px]   top-10 overflow-hidden">
-        <div className="flex flex-col gap-20 items-center justify-start  left-[calc(50%_-_640px)] top-0 overflow-hidden">
-          <div className="flex flex-row items-start justify-between self-stretch shrink-0 relative overflow-hidden">
-            <div className="flex flex-col gap-[25px] items-start justify-start shrink-0 w-[295px] relative overflow-hidden">
-              <Image
-                className="shrink-0  relative"
-                height={100}
-                width={100}
-                alt="logo"
-                objectFit="cover"
-                src="/logo.svg"
-              />
-              <div className=" text-left  text-sm leading-5 font-normal relative">
-                Plot No.99/507, Chinmayee Nivas, Road No.12,
-                <br />
-                Mahaveer Nagar, Samantrapur,
-                <br />
-                Bhubaneswar, Odisha, 751002{" "}
-              </div>
-              <div className="flex flex-row gap-5 items-center justify-center shrink-0 relative overflow-hidden text-ms_white">
-                <div className="shrink-0 w-6 h-6 relative overflow-hidden">
-                  <Facebook />
-                </div>
-                <div className="shrink-0 w-6 h-6 relative overflow-hidden">
-                  <Instagram />
-                </div>
-                <div className="shrink-0 w-6 h-[19.76px] relative overflow-hidden">
-                  <Twitter />
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-5 items-start justify-start shrink-0 w-[241px] relative overflow-hidden">
-              <div className="text-[#b88e2f] text-left font-['Poppins-Bold',_sans-serif] text-2xl leading-8 font-bold relative">
-                Links{" "}
-              </div>
-              <div className="flex flex-col gap-2.5 items-start justify-start shrink-0 relative">
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Home{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Shop{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  About{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Contact us{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Find us at Google Maps{" "}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-5 items-start justify-start shrink-0 w-60 relative overflow-hidden">
-              <div className="text-[#b88e2f] text-left font-['Poppins-Bold',_sans-serif] text-2xl leading-8 font-bold relative">
-                Help{" "}
-              </div>
-              <div className="flex flex-col gap-2.5 items-start justify-start shrink-0 relative">
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Payment Policy{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Privacy Policy{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative">
-                  Terms of Service{" "}
-                </div>
-                <div className=" text-left  text-sm leading-6 font-semibold relative self-stretch">
-                  Cancellation, Refund and Returns Policy{" "}
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col gap-5 items-start justify-start shrink-0 w-60 relative overflow-hidden">
-              <div className="text-[#b88e2f] text-left font-['Poppins-Bold',_sans-serif] text-2xl leading-8 font-bold relative">
-                Newsletter{" "}
-              </div>
-              <div className="flex flex-col gap-4 items-start justify-start self-stretch shrink-0 relative">
-                <div className="bg-[#1e342c] rounded-[32px] pr-4 pl-4 flex flex-col gap-0 items-start justify-center self-stretch shrink-0 h-8 relative">
-                  <div className="text-[#ffffff] text-left  text-xs font-normal relative">
-                    Email Address*{" "}
-                  </div>
-                </div>
-                <div className="rounded-[32px] border-solid border-[#fff3e3] border pt-1.5 pr-3 pb-1.5 pl-3 flex flex-col gap-0 items-start justify-center shrink-0 relative">
-                  <div className="text-[#fff3e3] text-left font-['Poppins-Medium',_sans-serif] text-[10px] font-medium relative">
-                    Subscribe{" "}
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div className="bg-[#0E2920] py-[4%] px-[10%]">
+      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="">
+          {/* Logo */}
+          <Image
+            className="py-2"
+            height={100}
+            width={100}
+            alt="logo"
+            objectFit="cover"
+            src="/logo.svg"
+          />
+          <p className="font-semibold text-[14px] pr-2 text-[#FFCF8F] py-2">{`Plot No.99/507, Chinmayee Nivas, Road No.12,Mahaveer Nagar, Samantrapur,Bhubaneswar, Odisha, 751002`}</p>
+          {/* Social Media */}
+          <div className="flex gap-2">
+            {socialMedia.map((item, index) => (
+              <a
+                key={index}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Image
+                  className="flex justify-center items-center"
+                  height={25}
+                  width={25}
+                  alt={item.alt}
+                  objectFit="cover"
+                  src={item.img}
+                />
+              </a>
+            ))}
           </div>
         </div>
-      </div>
-
-      <div className="text-light-text-color text-left  text-sm leading-6 font-medium  text-white">
-        copyright ©2024 MsArtLife{" "}
+        <div className="">
+          <p className="font-bold text-[#B88E2F] text-[24px]">Links</p>
+          <div className="flex flex-col font-semibold text-[14px] text-[#FFCF8F] gap-2">
+            {links.map((item, index) => (
+              <a key={index} href={item.link}>
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="">
+          <h3 className="font-bold text-[#B88E2F] text-[24px]">Help</h3>
+          <div className="flex flex-col font-semibold text-[14px] text-[#FFCF8F] gap-2">
+            {help.map((item, index) => (
+              <a key={index} href={item.link}>
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="">
+          <h3 className="font-bold text-[#B88E2F] text-[24px]">NewsLetter</h3>
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col justify-start items-start"
+          >
+            <input
+              type="email"
+              value={email}
+              onChange={handleEmailChange}
+              placeholder="Email Address"
+              required
+              className="bg-[#1E342C] text-white rounded-2xl px-2 py-1 my-2"
+            />
+            <button
+              type="submit"
+              className="text-white border border-white rounded-2xl px-2 py-1 my-2"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
