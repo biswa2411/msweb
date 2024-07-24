@@ -4,7 +4,7 @@ import Shop from "@components/pages/shop";
 import { Rating } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProductInfo = () => {
   const availableSizes = ["A0", "A1", "A2", "A3", "A4", "customize"];
@@ -79,33 +79,51 @@ const ProductInfo = () => {
   ];
 
   const [selectedImage, setSelectedImage] = useState(smallImages[0].img);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % smallImages.length);
+    }, 5000);
+
+    // Cleanup the interval on component unmount
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setSelectedImage(smallImages[currentIndex].img);
+  }, [currentIndex]);
 
   return (
     <div className="px-[10%] py-[5%]">
       <div className="">
         <div className="flex-row md:flex gap-3">
           <div className="md:w-[50%] ">
-            <div className="md:flex justify-between items-start">
-              <div className="flex flex-row md:flex-col  gap-1 cursor-pointer">
+            <div className="md:flex justify-between items-start h-[65vh] gap-5">
+              <div className="flex flex-row md:flex-col justify-between h-full cursor-pointer ">
                 {smallImages.map((items, index) => (
-                  <div key={index} onClick={() => setSelectedImage(items.img)}>
+                  <div key={index} onClick={() => setSelectedImage(items.img)} >
                     <Image
                       src={items.img}
                       alt="profile image"
                       height={150}
                       width={120}
+                      priority
                       className="border hover:border-[#0E2920] rounded-lg "
                     />
                   </div>
                 ))}
               </div>
-              <Image
+              <img src={selectedImage} alt="selected image"  className="h-full w-full object-cover rounded-lg "/>
+              {/* <Image
                 src={selectedImage}
                 alt="profile image"
-                height={600}
+                height={300}
                 width={600}
-                className="flex justify-center items-center rounded-lg"
-              />
+                objectFit=""
+                priority
+                className="flex justify-center items-center rounded-lg overflow-hidden "
+              /> */}
             </div>
             <div className="flex justify-between py-[2%] gap-2">
               <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
@@ -303,6 +321,7 @@ const ProductInfo = () => {
       </div>
       {/* Related Products */}
       <Shop />
+
       {/* <div className="bg-[#F0F0F0] py-[3%] px-[5%]">
         <h3 className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold pb-[3%]">
           Related Products
