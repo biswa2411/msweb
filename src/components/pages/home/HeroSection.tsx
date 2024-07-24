@@ -38,7 +38,7 @@ const HeroSection = () => {
                                     <img
                                         src={item}
                                         alt={`hero-image-${i}`}
-                                        className="w-full h-full object-contain bg-red-400"
+                                        className="w-full h-full object-contain "
                                     />
                                     <div className="absolute inset-0 flex items-end justify-end p-20 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <button className="bg-primary text-white text-xl font-bold py-4 px-6 rounded-md shadow-lg hover:bg-primary_lite">
