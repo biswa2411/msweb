@@ -101,15 +101,15 @@ const ProductInfo = () => {
           <div className="md:w-[50%] ">
             <div className="md:flex justify-between items-start h-[65vh] gap-5">
               <div className="flex flex-row md:flex-col justify-between h-full cursor-pointer ">
-                {smallImages.map((items, index) => (
-                  <div key={index} onClick={() => setSelectedImage(items.img)} >
+                {smallImages.map((item, index) => (
+                  <div key={index} onClick={() => setSelectedImage(item.img)} >
                     <Image
-                      src={items.img}
+                      src={item.img}
                       alt="profile image"
                       height={150}
                       width={120}
                       priority
-                      className="border hover:border-[#0E2920] rounded-lg "
+                      className={`border hover:border-[#0E2920] rounded-lg ${selectedImage===item.img?'border-[#0E2920]':''}`}
                     />
                   </div>
                 ))}
