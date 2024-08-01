@@ -24,8 +24,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="flex md:flex-row  flex-col justify-center items-center bg-[#0E2920] font-medium text-[16px] rounded-bl-[100px] mb-[5%]">
-      <div className="text-white md:px-[5%] px-[1%] md:py-[5%] py-[1%] w-[60%]">
+    <div className="md:px-[10%] px-[3%] md:pt-[5%] pb-[5%] flex md:flex-row  flex-col justify-between items-center bg-[#0E2920] font-medium text-[16px] rounded-bl-[100px] mb-[5%]">
+      <div className="text-white w-[100%] md:w-[60%] pr-[2%]">
         <h4 className="uppercase font-semibold text-[16px] pt-10">
           Get In Touch With Us
         </h4>
@@ -76,8 +76,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="md:px-[5%] px-[1%] md:py-[5%] py-[1%] w-[40%]">
-        <div className="bg-[#1e342c] p-[10%] rounded-md">
+      <div className="">
+        <div className="bg-[#1e342c] lg:w-[500px] p-[10%] rounded-md">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col justify-center items-center gap-6 ">
             <input
