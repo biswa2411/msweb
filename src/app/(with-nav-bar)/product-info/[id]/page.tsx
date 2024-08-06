@@ -1,16 +1,37 @@
 "use client";
 
+import { NumberInput } from "@components/lib/inputs/NumberInput";
 import Shop from "@components/pages/shop";
-import { Rating } from "@mui/material";
+import { Rating, TextField } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const ProductInfo = () => {
-  const availableSizes = ["A0", "A1", "A2", "A3", "A4", "customize"];
-  const variants = ["Canvas Print", "Matte Print"];
-  const chooseOptions = ["Hard Copy", "Soft Copy"];
-  const personsAdded = ["1 Person", "2 Persons", "3 Persons", "4+ Persons"];
+  const availableSizes = [
+    { name: "A4", h: 11.7, w: 8.3 },
+    { name: "A1", h: 33.1, w: 23.4 },
+    { name: "A2", h: 23.4, w: 16.5 },
+    { name: "A3", h: 16.5, w: 11.7 },
+    { name: "A0", h: 46.8, w: 33.1 },
+    { name: "Customize", h: 11.7, w: 8.3 }];
+  const [activeSize, setActiveSize] = useState("A4")
+  const [isCanvas, setIsCanvas] = useState(true)
+  const [isHardCopy, setIsHardCopy] = useState(true)
+  const [personCount, setPersonCount] = useState(1)
+  const [price, setPrice] = useState({
+    sp: 2278.04,
+    mrp: 4094.28
+  })
+
+  const [scale, setScale] = useState({
+    h: 11.7,
+    w: 8.3
+  })
+
+  useEffect(() => {
+    calculateCanvasCost(personCount)
+  }, [scale, isCanvas, isHardCopy, personCount])
 
   const smallImages = [
     {
@@ -94,6 +115,49 @@ const ProductInfo = () => {
     setSelectedImage(smallImages[currentIndex].img);
   }, [currentIndex]);
 
+  const calculateCanvasCost = (numPersons = 1) => {
+    // Calculate the printing price
+    const printPrice = (isCanvas ? 29.19 : 8.3) * (scale.h * scale.w) / 12;
+
+    // Calculate the frame price
+    const framePrice = 50 * ((scale.h + scale.w) / 6);
+
+    // Calculate the board price
+    const boardPrice = scale.h * scale.w * (isCanvas ? 2.1 : 1.577);
+
+    // Calculate the person cost
+    // Calculate the person cost using a predefined tier structure
+    const tiers = [
+      { count: 2, price: 900 },
+      { count: 2, price: 800 },
+      { count: 2, price: 700 },
+      { count: Infinity, price: 650 }
+    ];
+
+    let personCost = 0;
+    for (const tier of tiers) {
+      if (numPersons <= 0) break;
+      const peopleInTier = Math.min(numPersons, tier.count);
+      personCost += peopleInTier * tier.price;
+      numPersons -= peopleInTier;
+    }
+    // Calculate the total price before GST
+    const totalPriceBeforeGST = (isHardCopy ? (printPrice + framePrice + boardPrice) : 0) + personCost;
+    // Calculate the total selling price with 18% GST
+    const sp = Number.isNaN(totalPriceBeforeGST) ? 0 : Number((totalPriceBeforeGST + (totalPriceBeforeGST * 0.18) + (isCanvas ? 500 : 0)).toFixed(2));
+    const mrp = Number((sp + (isCanvas ? 700 : 0) + (sp * (isCanvas ? .49 : .39))).toFixed(2))
+
+    setPrice({ mrp, sp })
+  }
+
+  // Example usage:
+  // const height = 30; // Height in inches
+  // const width = 36;  // Width in inches
+  // const numPersons = 7; // Number of persons
+  // const cost = calculateCanvasCost(height, width, numPersons);
+  // console.log(`The total cost of the canvas painting is: ₹${cost.sp.toFixed(2)} and mrp is ₹${cost.mrp.toFixed(2)}`);
+
+
   return (
     <div className="px-[10%] py-[5%]">
       <div className="">
@@ -109,12 +173,12 @@ const ProductInfo = () => {
                       height={150}
                       width={120}
                       priority
-                      className={`border hover:border-[#0E2920] rounded-lg ${selectedImage===item.img?'border-[#0E2920]':''}`}
+                      className={`border hover:border-[#0E2920] rounded-lg ${selectedImage === item.img ? 'border-[#0E2920]' : ''}`}
                     />
                   </div>
                 ))}
               </div>
-              <img src={selectedImage} alt="selected image"  className="h-full w-full object-cover rounded-lg "/>
+              <img src={selectedImage} alt="selected image" className="h-full w-full object-cover rounded-lg " />
               {/* <Image
                 src={selectedImage}
                 alt="profile image"
@@ -157,11 +221,12 @@ const ProductInfo = () => {
               quia odit necessitatibus eligendi, natus sed officia eos provident
               iure veritatis amet?
             </h3>
-            <h4 className="font-semibold text-[#B88E2F] text-[16px] md:text-[20px] lg:text-[24px]">
-              <span>₹ 34,334</span>
-              {" - "}
-              <span>₹ 32,323</span>
-            </h4>
+            <p className="font-semibold text-[#B88E2F] text-[16px] md:text-[20px] lg:text-[28px]">
+              ₹{price.sp}
+            </p>
+            {price.mrp ? <p className="font-normal text-[12px] md:text-[18px] lg:text-[18px] text-gray-400 line-through decoration-black deco">
+              ₹{price.mrp}
+            </p> : <></>}
             <Rating name="half-rating" defaultValue={2.3} precision={0.1} />
 
             {/* Frame Size */}
@@ -170,14 +235,40 @@ const ProductInfo = () => {
                 Frame size
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {availableSizes.map((size, index) => (
+                {availableSizes.map(({ name, h, w }, index) => (
                   <button
                     key={index}
-                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border border-black hover:border-[#B88E2F]"
+                    onClick={() => {
+                      name != "Customize" ? setScale({ h, w }) : "";
+                      setActiveSize(name)
+                    }}
+                    className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border  ${activeSize == name ? 'bg-[#B88E2F] text-white' : ''}`}
                   >
-                    {size}
+                    {name}
                   </button>
                 ))}
+                {activeSize == "Customize" &&
+                  <> <TextField
+                    label="Height in Inches"
+                    variant="outlined"
+                    fullWidth
+                    value={scale.h}
+                    onChange={(e) => { setScale({ ...scale, h: parseFloat(e.target.value) }) }}
+                    type="number" // Ensures only numeric input
+                    inputProps={{ step: '0.01' }} // Allows decimal input
+                    margin="normal"
+                  />
+                    <TextField
+                      label="Width in Inches"
+                      variant="outlined"
+                      fullWidth
+                      value={scale.w}
+                      onChange={(e) => { setScale({ ...scale, w: parseFloat(e.target.value) }) }}
+                      type="number" // Ensures only numeric input
+                      inputProps={{ step: '0.01' }} // Allows decimal input
+                      margin="normal"
+                    /></>
+                }
               </div>
             </div>
 
@@ -187,14 +278,19 @@ const ProductInfo = () => {
                 Choose Variant
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {variants.map((size, index) => (
-                  <button
-                    key={index}
-                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border border-black hover:border-[#B88E2F]"
-                  >
-                    {size}
-                  </button>
-                ))}
+                <button
+                  onClick={() => setIsCanvas(true)}
+                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
+                >
+                  Canvas Paint
+                </button>
+
+                <button
+                  onClick={() => setIsCanvas(false)}
+                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
+                >
+                  Matte Paint
+                </button>
               </div>
             </div>
 
@@ -204,14 +300,21 @@ const ProductInfo = () => {
                 Choose Option
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {chooseOptions.map((size, index) => (
-                  <button
-                    key={index}
-                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border border-black hover:border-[#B88E2F]"
-                  >
-                    {size}
-                  </button>
-                ))}
+
+                <button
+                  onClick={() => setIsHardCopy(true)}
+                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
+                >
+                  Hard Copy
+                </button>
+
+                <button
+                  onClick={() => setIsHardCopy(false)}
+                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
+                >
+                  Soft Copy
+                </button>
+
               </div>
             </div>
 
@@ -221,14 +324,16 @@ const ProductInfo = () => {
                 No. of Person in your photo
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {personsAdded.map((size, index) => (
+                {/* {personsAdded.map((size, index) => (
                   <button
                     key={index}
-                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border border-black hover:border-[#B88E2F]"
+                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border "
                   >
                     {size}
                   </button>
-                ))}
+                ))} */}
+
+                <NumberInput min={1} max={99} defaultValue={personCount} onChange={(event, newValue) => setPersonCount(newValue ?? 1)} />
               </div>
             </div>
 
@@ -316,7 +421,7 @@ const ProductInfo = () => {
 
         {/* Our Happy Customers  */}
         <div className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold">
-          Our Happy Customers
+          Related Product
         </div>
       </div>
       {/* Related Products */}
