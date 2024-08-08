@@ -1,4 +1,5 @@
 import { HeroSection } from "@components/pages/about/HeroSection";
+import { Highlight } from "@components/pages/about/Highlight";
 import { OurStory } from "@components/pages/about/OurStory";
 import { Team } from "@components/pages/about/Team";
 import { WhatMakesUsDiff } from "@components/pages/about/WhatMakesUsDiff";
@@ -11,6 +12,7 @@ const About = () => {
       <OurStory />
       <WhatMakesUsDiff/>
       <Team/>
+      <Highlight />
     </div>
   );
 };
