@@ -128,6 +128,7 @@ export const Footer = (): JSX.Element => {
           </form>
         </div>
       </div>
+      <div className="text-center pt-4 text-[#FFFFFF] font-medium ">copyright ©2024 MsArtLife </div>
     </div>
   );
 };
