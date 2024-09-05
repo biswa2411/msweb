@@ -3,13 +3,12 @@ import Shop from '../shop'
 
 const OurServices = () => {
     return (
-        <div className='py-10 w-full bg-white flex flex-col justify-center gap-5 items-center'>
+        <div className='py-10 w-full bg-white flex flex-col justify-center gap-5 items-center text-primary'>
             <h1 className='text-5xl font-bold'>
-                Our Services
+                Shop By Categories
             </h1>
-            <p className='w-4/5'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim commodi molestias impedit asperiores, accusamus quibusdam, modi neque blanditiis dolorem ea sit eius odit eveniet sapiente repudiandae minus quaerat odio! Maxime?
-            </p>
+            <p className='w-4/5 text-2xl font-serif'>
+            Find Your Perfect Piece: Shop by Range and Discover the Art That Speaks to You! </p>
            <div className='w-4/5 pt-10'>
            <Shop />
            </div>

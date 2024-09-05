@@ -15,7 +15,7 @@ const HeroSection = () => {
     };
     return (
         <section className="h-screen flex flex-col bg-primary w-full p-14 gap-4">
-         <div className='w-full h-1/2 left-0 flex justify-between bg-red-500 p-2'>
+         <div className='w-full h-1/2 left-0 flex justify-between\ p-2'>
          <Swiper
                 slidesPerView={1}
                 spaceBetween={70}
@@ -28,7 +28,7 @@ const HeroSection = () => {
 
                 modules={[Autoplay, Pagination]}
 
-                className="w-2/3 bg-red-100"
+                className="w-2/3 bg-red-100 "
             >
                 {["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"].map((item, i) => {
                     return (
