@@ -1,11 +1,10 @@
-"use client";
-
+'use client'
+import { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Person, Search, ShoppingCart } from "@mui/icons-material";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import IconButton from "@components/lib/buttons/IconButton";
-import { useState } from "react";
 import {
   Divider,
   Drawer,
@@ -15,19 +14,19 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-
 import InboxIcon from "@mui/icons-material/Inbox";
 import DraftsIcon from "@mui/icons-material/Drafts";
 import DeleteIcon from "@mui/icons-material/Delete";
 import ReportIcon from "@mui/icons-material/Report";
 import AllInboxIcon from "@mui/icons-material/AllInbox";
-import SendIcon from '@mui/icons-material/Send';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
+import SendIcon from "@mui/icons-material/Send";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
 
 export const Header = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const user = "biswajit-routray";
+  const [open, setOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Shop", path: "/shop" },
@@ -35,21 +34,42 @@ export const Header = () => {
     { title: "About", path: "/about" },
     { title: "Contact Us", path: "/contact-us" },
   ];
+  const user = "biswajit-routray";
 
-  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 1150) {
+      let lastScrollTop = 0;
+      const handleScroll = () => {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (currentScrollTop > lastScrollTop) {
+          // Scrolling down
+          setShowNavbar(false);
+        } else {
+          // Scrolling up
+          setShowNavbar(true);
+        }
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
-
   const DrawerList = (
     <div
-      className="w-[100%] bg-primary h-full text-white "
+      className="w-[100%] bg-primary h-full text-white"
       role="presentation"
       onClick={toggleDrawer(false)}
     >
-      <div className="relative " onClick={toggleDrawer(false)}>
+      <div className="relative" onClick={toggleDrawer(false)}>
         <Image
           src={"/crossIcon.svg"}
           alt="logo"
@@ -61,7 +81,7 @@ export const Header = () => {
       </div>
       <div className="flex w-full justify-center my-5">
         <button
-          className=" relative cursor-pointer shadow-custom rounded-full mt-2 "
+          className="relative cursor-pointer shadow-custom rounded-full mt-2"
           onClick={() => router.push("/")}
         >
           <Image
@@ -73,7 +93,6 @@ export const Header = () => {
           />
         </button>
       </div>
-
       <List>
         {[
           { text: "Inbox", icon: <InboxIcon className="text-white" /> },
@@ -108,7 +127,10 @@ export const Header = () => {
   );
 
   return (
-    <nav className="w-full mx-auto  bg-primary text-ms_white px-10 md:px-20 flex justify-between items-center py-4 fixed top-0 z-30">
+    <nav
+      className={`w-full mx-auto bg-primary text-ms_white px-10 md:px-20 flex justify-between items-center py-4 fixed top-0 z-30 transition-transform duration-300  ${showNavbar ? "translate-y-0" : "-translate-y-full"
+        }`}
+    >
       <button
         className="flex cursor-pointer lg:hidden"
         onClick={toggleDrawer(true)}
@@ -116,7 +138,7 @@ export const Header = () => {
         <MenuIcon />
       </button>
       <button
-        className=" relative cursor-pointer shadow-custom rounded-full"
+        className="relative cursor-pointer shadow-custom rounded-full"
         onClick={() => router.push("/")}
       >
         <Image
@@ -127,7 +149,7 @@ export const Header = () => {
           objectFit="contain"
         />
       </button>
-      <div className="hidden lg:flex gap-10 bg-primary_lite  px-10 rounded-full shadow-custom ">
+      <div className="hidden lg:flex gap-10 bg-primary_lite px-10 rounded-full shadow-custom">
         {menuItems.map(({ title, path }, index) => {
           const isActive =
             (path === "/" && pathname === "/") ||
@@ -136,18 +158,16 @@ export const Header = () => {
             <button
               key={index}
               onClick={() => router.push(path)}
-              className="group relative h-10 inline-block overflow-hidden rounded  w-24  text-sm font-medium   "
+              className="group relative h-10 inline-block overflow-hidden rounded w-24 text-sm font-medium"
             >
               {title}
               <span
-                className={`ease absolute left-0 top-0 h-0 w-0 border-t-2 border-ms_white transition-all duration-200 ${
-                  isActive ? "w-full" : "group-hover:w-full"
-                }`}
+                className={`ease absolute left-0 top-0 h-0 w-0 border-t-2 border-ms_white transition-all duration-200 ${isActive ? "w-full" : "group-hover:w-full"
+                  }`}
               ></span>
               <span
-                className={`ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-ms_white transition-all duration-200 ${
-                  isActive ? "w-full" : "group-hover:w-full"
-                }`}
+                className={`ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-ms_white transition-all duration-200 ${isActive ? "w-full" : "group-hover:w-full"
+                  }`}
               ></span>
             </button>
           );
@@ -175,3 +195,4 @@ export const Header = () => {
     </nav>
   );
 };
+

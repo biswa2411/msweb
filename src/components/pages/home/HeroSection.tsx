@@ -28,7 +28,7 @@ const HeroSection = () => {
 
                 modules={[Autoplay, Pagination]}
 
-                className="w-2/3 bg-red-100 "
+                className="w-2/3"
             >
                 {["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"].map((item, i) => {
                     return (

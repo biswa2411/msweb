@@ -63,18 +63,7 @@ const Gallery = () => {
             mrp: 3200,
             offerPrice: 2600,
         },
-        {
-            image: "https://via.placeholder.com/200",
-            name: "Wildflower Meadow",
-            mrp: 2800,
-            offerPrice: 2200,
-        },
-        {
-            image: "https://via.placeholder.com/200",
-            name: "Aurora Borealis",
-            mrp: 6000,
-            offerPrice: 5000,
-        },
+        
     ];
 
     return (
@@ -85,7 +74,7 @@ const Gallery = () => {
             </div>
             <div>
 
-                <div className='grid grid-cols-5 gap-5 w-full mt-10  overflow-x-auto'>
+                <div className='grid grid-cols-4 gap-5 w-full mt-10  overflow-x-auto'>
 
                     {
                         products.map((i, k) => {
