@@ -16,12 +16,13 @@ export default function NavigationLayout({
     { icon: "/profileIcon.svg", link: "/profile", Title: "Profile" },
     { icon: "/ordersIcon.svg", link: "/order", Title: "Orders" },
     { icon: "/helpIcon.svg", link: "/support", Title: "Help & Support" },
+    { icon: "/signOutIcon.svg", link: "#", Title: "Log Out" },
   ];
 
   return (
-    <section className="'h-screen w-screen flex flex-row">
-      <div className="w-[30vw] flex items-start justify-center">
-        <div className=" flex flex-col gap-5 justify-center items-center py-[10%] bg-white w-4/5 m-10  shadow-custom rounded-xl">
+    <section className="'h- w- flex flex-row">
+      <div className=" md:w-[350px] flex items-start justify-center bg-slate-400">
+        <div className=" flex flex-col gap-5 justify-center items-center py-[10%] bg-white w-4/5 m-2 md:m-5  shadow-custom rounded-xl">
           <div className="relative">
             <Image
               src={
@@ -36,21 +37,21 @@ export default function NavigationLayout({
               <Image
                 src="/cameraIcon.svg"
                 alt="profile image"
-                height={50}
-                width={50}
+                height={35}
+                width={35}
                 className="rounded-full"
               />
             </button>
           </div>
-          <div className="text-primary font-bold text-[16px] md:text-[24px]">
+          <div className="text-primary text-center font-bold text-[16px] md:text-[24px]">
             John Perry
           </div>
-          <ul className="w-full">
+          <ul className="w-[70px] md:w-full">
             {profileSidebar.map(({ link, icon, Title }, key) => (
               <li
                 key={key}
                 className={`mb-5 w-full px-5 py-2 hover:border-l-4 border-primary ${
-                  router === link ? "text-primary" : "text-gray-300"
+                  router === link ? "text-primary border-l-4" : "text-gray-300"
                 }`}
               >
                 <Link
@@ -64,22 +65,10 @@ export default function NavigationLayout({
                     width={30}
                     className="flex justify-center items-center"
                   />
-                  {Title}{" "}
+                  <span className="hidden md:inline text-[16px]">{Title}</span>
                 </Link>
               </li>
             ))}
-            <li className="mb-5 w-full px-5 py-2 hover:border-l-4 border-primary hover:cursor-pointer">
-              <div className="hover:text-primary font-semibold text-[20px] text-gray-300 flex gap-3 ">
-                <Image
-                  src="/signOutIcon.svg"
-                  alt="profile image"
-                  height={30}
-                  width={30}
-                  className="flex justify-center items-center"
-                />
-                Log Out
-              </div>
-            </li>
           </ul>
         </div>
       </div>
