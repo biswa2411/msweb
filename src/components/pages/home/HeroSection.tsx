@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/bundle";
 import Image from 'next/image';
+import OfferCard from '@components/lib/cards/OfferCard';
 
 const HeroSection = () => {
 
@@ -13,8 +14,9 @@ const HeroSection = () => {
         },
     };
     return (
-        <section className="h-[700px] flex items-center w-full p-14 bg-primary">
-            <Swiper
+        <section className="h-screen flex flex-col bg-primary w-full p-14 gap-4">
+         <div className='w-full h-1/2 left-0 flex justify-between bg-red-500 p-2'>
+         <Swiper
                 slidesPerView={1}
                 spaceBetween={70}
                 loop={true}
@@ -26,15 +28,15 @@ const HeroSection = () => {
 
                 modules={[Autoplay, Pagination]}
 
-                className="mySwiper"
+                className="w-2/3 bg-red-100"
             >
                 {["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"].map((item, i) => {
                     return (
                         <SwiperSlide key={i}>
 
-                            <div className='flex w-full justify-center relative'>
+                            <div className='flex w-full h-96 justify-center relative'>
 
-                                <div className="relative group w-fit h-[620px] rounded-xl overflow-hidden cursor-pointer">
+                                <div className="relative group rounded-xl overflow-hidden cursor-pointer">
                                     <img
                                         src={item}
                                         alt={`hero-image-${i}`}
@@ -53,6 +55,20 @@ const HeroSection = () => {
 
 
             </Swiper>
+            <div className='flex flex-col gap-4 justify-between'>
+       <OfferCard/>
+       <OfferCard/>
+      
+       </div>
+         </div>
+       <div className='flex justify-between'>
+       <OfferCard/>
+       <OfferCard/>
+       <OfferCard/>
+       <OfferCard/>
+       <OfferCard/>
+       </div>
+
 
         </section>
     )
