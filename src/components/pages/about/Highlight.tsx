@@ -73,7 +73,7 @@ export const Highlight = () => {
   }, [isVisible]);
 
   return (
-    <div ref={sectionRef} className="text-[#F8F8F8] px-[3%] md:px-[6%] lg:px-[10%] py-[10%]">
+    <div ref={sectionRef} className="text-[#F8F8F8] px-[3%] md:px-[6%] lg:px-[10%] py-[10%] bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[4%]">
         {highlights.map((item, index) => (
           <div key={index} className="flex flex-col justify-center items-center">

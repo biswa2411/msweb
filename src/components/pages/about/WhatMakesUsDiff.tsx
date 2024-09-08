@@ -3,7 +3,7 @@ import React from "react";
 
 export const WhatMakesUsDiff = () => {
   return (
-    <div className=" py-[5%]">
+    <div className=" py-[5%] bg-white">
       <div className=" font-bold text-[#0e2920] text-[28px] md:text-[36px] lg:text-[48px] text-center pb-[3%]">
         WHAT MAKES US DIFFERENT?
       </div>

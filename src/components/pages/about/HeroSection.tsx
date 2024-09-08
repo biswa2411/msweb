@@ -8,7 +8,7 @@ export const HeroSection = () => {
         <div className="w-full pt-[10%] font-semibold italic text-[#0e2920] text-[24px]  tracking-[0] leading-[normal]">
           ABOUT US
         </div>
-        <p className="w-full font-bold text-[#0e2920] text-[16px] lg:text-[18px] tracking-[0] leading-[normal]">
+        <p className="w-full font-bold text-[#0e2920] text-[24px] md:text-[28px] lg:text-[48px] tracking-[0] leading-[normal]">
           Welcome to MS Art Life, your gateway to a world of captivating and
           customized artworks!
         </p>
