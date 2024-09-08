@@ -38,16 +38,15 @@ const Shop = () => {
                         <img
                             src={items.img}
                             alt="profile image"
-                            className="rounded-lg h-full w-full"
+                            className="rounded-lg h-full w-full object-contain"
                         />
                     </div>
-                    <div className="flex justify-between items-center px-2 w-full">
+                    <div className="flex justify-between items-center px-2 w-full my-2">
                         <p className="font-bold text-[#000000] text-[16px] md:text-[20px]">
                             {items.paintingType}
                         </p>
-                        <button className="flex border hover:bg-[#0E2920] text-[#0E2920] hover:text-white border-[#0E2920] py-2 px-3 rounded-full">
-                            <p>Starts at ₹</p>
-                            <p>{items.price}</p>
+                        <button className="flex border hover:bg-[#0E2920] text-[#0E2920] hover:text-white border-[#0E2920] py-1 px-2 rounded-full">
+                            <p>Starts at ₹{items.price}</p>
                         </button>
                     </div>
                 </Link>
