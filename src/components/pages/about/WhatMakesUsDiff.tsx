@@ -4,13 +4,13 @@ import React from "react";
 export const WhatMakesUsDiff = () => {
   return (
     <div className=" py-[5%]">
-      <div className=" font-bold text-[#0e2920] text-[28px] md:text-[36px] lg:text-[48px] text-center ">
+      <div className=" font-bold text-[#0e2920] text-[28px] md:text-[36px] lg:text-[48px] text-center pb-[3%]">
         WHAT MAKES US DIFFERENT?
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2">
         <div className="flex justify-center items-center">
-          <div className="p-[3%] md:p-[6%] lg:p-[10%] text-center lg:text-start">
-            <p className=" font-bold text-[#0e2920] text-[24px] md:text-[28px] lg:text-[32px] ">
+          <div className="px-[3%] md:px-[5px] lg:px-[10%] py-[3%] text-center lg:text-start">
+            <p className=" font-bold text-[#0e2920] text-[20px] md:text-[24px] lg:text-[28px] ">
               Handmade with Love, just for you.
             </p>
             <p className=" font-medium text-[#0e2920] text-[16px] ">
@@ -23,14 +23,16 @@ export const WhatMakesUsDiff = () => {
             </p>
           </div>
         </div>
-        <Image width={719} height={472} alt="Rectangle1" src="/frame1.png" />
-
-        <div className="flex justify-end items-start">
-          <Image width={719} height={472} alt="Rectangle2" src="/frame2.png" />
+        <div className="flex justify-center items-center md:justify-start md:items-start">
+          <Image width={1000} height={472} alt="Rectangle1" src="/frame1.png" />
         </div>
-        <div className="flex justify-center items-center">
+
+        <div className="flex justify-center items-center md:justify-end md:items-end order-4 md:order-none">
+          <Image width={1000} height={472} alt="Rectangle2" src="/frame2.png" />
+        </div>
+        <div className="flex justify-center items-center order-3 md:order-none">
           <div className="p-[3%] md:p-[6%] lg:p-[10%] text-center lg:text-start">
-            <div className=" font-bold text-[#0e2920] text-[24px] md:text-[28px] lg:text-[32px]">
+            <div className=" font-bold text-[#0e2920] text-[20px] md:text-[24px] lg:text-[28px]">
               Our Artisans
             </div>
             <p className="font-medium text-[#0e2920] text-[16px]">

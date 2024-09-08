@@ -82,7 +82,7 @@ export const Highlight = () => {
               <div>+</div>
             </div>
             <h3 className="font-bold text-[#000000] text-[18px] md:text-[20px] lg:text-[24px]">{item.type}</h3>
-            <p className="text-[#000000]">{item.description}</p>
+            <p className="text-[#000000] text-center">{item.description}</p>
           </div>
         ))}
       </div>

@@ -22,13 +22,7 @@ export const OurStory = () => {
         </div>
       </div>
       <div className="flex flex-col lg:flex-row  py-[5%]">
-        <Image
-          className=""
-          width={800}
-          height={480}
-          alt="Rectangle"
-          src="/ourstory.png"
-        />
+        <Image width={800} height={480} alt="Rectangle" src="/ourstory.png" />
         <div className="flex lg:justify-start items-center px-[3%] lg:px-[5%] py-[5%] text-[#FFF3E3]">
           <div className="">
             <div className="">
