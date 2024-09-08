@@ -81,7 +81,12 @@ const TestimonialCarousel = () => {
         activeIndex === mockItems.length - 1 ? setActiveIndex(0) : setActiveIndex(activeIndex + 1)
     }
     return (
-        <div className="py-10 relative bg-primary" >
+        <div className="py-10 relative bg-primary justify-center flex flex-col items-center" >
+            
+            <h1 className='text-5xl font-bold text-secondary'>
+        Happy Customers
+            </h1>
+         
             <button onClick={handlePrev} className="absolute top-1/2 -translate-y-1/2 -translate-x-full left-[10%]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />

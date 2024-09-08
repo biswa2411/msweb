@@ -9,7 +9,7 @@ export default function DashboardLayout({
 
     <div className="bg-primary w-full h-screen flex justify-between px-20 items-center">
      <div className="w-full  justify-center items-center flex">
-     <div className="flex bg-primary flex-col w-fit p-10 justify-center items-center gap-5 shadow-custom rounded-[40px] ">
+     <div className="flex bg-white bg-opacity-10 backdrop-blur-lg  space-x-4 flex-col w-fit p-10 justify-center items-center gap-5 shadow-custom rounded-[40px] ">
         <img
           className="w-[175px] h-[175px]  left-[calc(50%_-_446px)] top-[calc(50%_-_363px)] shadow-custom rounded-full"
           style={{ objectFit: "cover" }}
@@ -21,12 +21,7 @@ export default function DashboardLayout({
       </div>
      </div>
 
-      <img
-        className="rounded-[32px] w-[656px] h-[904px]  left-[724px] top-[60px]"
-        style={{ objectFit: "cover" }}
-        src={'/auth/auth1.jpg'}
-      />
-
+    
 
     </div>
   );
