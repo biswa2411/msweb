@@ -9,7 +9,7 @@ export default function NavigationLayout({
   const menuId = "primary-search-account-menu";
 
   return (
-    <section className="bg-primary">
+    <section className="bg-white">
       {/* Include shared UI here e.g. a header or sidebar */}
       <Header />
       <div className="mt-[92px]">{children}</div>
