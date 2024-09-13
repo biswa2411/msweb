@@ -1,8 +1,8 @@
 "use client";
 
+import EditProfileModal from "@components/modals/EditProfileModal";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
-import EditProfileModal from "@components/sidebarComponents/EditProfileModal";
 
 const Profile = () => {
   const router = useRouter();
