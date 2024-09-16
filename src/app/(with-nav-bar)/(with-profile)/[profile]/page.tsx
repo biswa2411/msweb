@@ -72,7 +72,7 @@ const Profile = () => {
             <button className="text-[#0E2920]">Edit</button>
           </div>
         </div>
-        <div className="flex md:justify-start md:items-start flex-col md:flex-row mr-[20%]">
+        <div className="flex md:justify-start md:items-start flex-col md:flex-row lg:mr-[20%]">
           <div className="flex flex-col py-1 md:mr-5  md:w-[50%]">
             <label className="font-semibold text-[14px] text py-1-[#0E2920]">
               First Name
@@ -100,7 +100,7 @@ const Profile = () => {
             />
           </div>
         </div>
-        <div className="flex md:justify-start md:items-start flex-col md:flex-row  mr-[20%]">
+        <div className="flex md:justify-start md:items-start flex-col md:flex-row  lg:mr-[20%]">
           <div className="flex flex-col md:mr-5  md:w-[50%] py-1">
             <label className="font-semibold text-[14px] text-[#0E2920]">
               Email Address
@@ -142,7 +142,7 @@ const Profile = () => {
           </div>
         </div>
         <div>
-          <div className="flex md:justify-start md:items-start flex-col md:flex-row mr-[20%]">
+          <div className="flex md:justify-start md:items-start flex-col md:flex-row lg:mr-[20%]">
             <div className="flex flex-col py-1 md:mr-5  md:w-[50%]">
               <label className="font-semibold text-[14px] text py-1-[#0E2920]">
                 First Name
@@ -170,7 +170,7 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="flex md:justify-start md:items-start flex-col md:flex-row  mr-[20%]">
+          <div className="flex md:justify-start md:items-start flex-col md:flex-row  lg:mr-[20%]">
             <div className="flex flex-col md:mr-5  md:w-[50%] py-1">
               <label className="font-semibold text-[14px] text-[#0E2920]">
                 Email Address
@@ -189,7 +189,7 @@ const Profile = () => {
                 Phone No
               </label>
               <input
-                type="tel"
+                type="number"
                 name="phone"
                 value={formData.billingPhone}
                 placeholder="Enter Phone No"
@@ -198,7 +198,7 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col py-1 mr-[20%]">
+          <div className="flex flex-col py-1 lg:mr-[20%]">
             <label className="font-semibold text-[14px] text-[#0E2920]">
               Company Name
             </label>
@@ -211,7 +211,7 @@ const Profile = () => {
               className="border border-black  pl-2 rounded-[4px] py-2"
             />
           </div>
-          <div className="flex flex-col py-1 mr-[20%]">
+          <div className="flex flex-col py-1 lg:mr-[20%]">
             <label className="font-semibold text-[14px] text-[#0E2920]">
               Street Adders
             </label>
@@ -224,7 +224,7 @@ const Profile = () => {
               className="border border-black pl-2 rounded-[4px] py-2"
             />
           </div>
-          <div className="flex flex-col md:flex-row  mr-[20%] md:mr-[11%]">
+          <div className="flex flex-col md:flex-row  lg:mr-[20%] md:mr-[11%]">
             <div className="flex flex-col py-1">
               <label className="font-semibold text-[14px] text-[#0E2920]">
                 Town/City
@@ -256,7 +256,7 @@ const Profile = () => {
                 PIN Code
               </label>
               <input
-                type="text"
+                type="number"
                 name="pin"
                 value={formData.pin}
                 placeholder="Enter PIN Code"
