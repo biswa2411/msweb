@@ -119,7 +119,7 @@ const Profile = () => {
               Phone No
             </label>
             <input
-              type="tel"
+              type="number"
               name="phone"
               value={formData.phone}
               placeholder="Enter Phone No"
@@ -149,7 +149,7 @@ const Profile = () => {
               </label>
               <input
                 type="text"
-                name="firstName"
+                name="billingFirstName"
                 placeholder="Enter First Name"
                 value={formData.billingFirstName}
                 onChange={handleInputChange}
@@ -162,7 +162,7 @@ const Profile = () => {
               </label>
               <input
                 type="text"
-                name="lastName"
+                name="billingLastName"
                 placeholder="Enter Last Name"
                 value={formData.billingLastName}
                 onChange={handleInputChange}
@@ -177,7 +177,7 @@ const Profile = () => {
               </label>
               <input
                 type="email"
-                name="email"
+                name="billingEmail"
                 placeholder="Enter Email"
                 value={formData.billingEmail}
                 onChange={handleInputChange}
@@ -190,7 +190,7 @@ const Profile = () => {
               </label>
               <input
                 type="number"
-                name="phone"
+                name="billingPhone"
                 value={formData.billingPhone}
                 placeholder="Enter Phone No"
                 onChange={handleInputChange}
