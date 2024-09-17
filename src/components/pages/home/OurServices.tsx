@@ -7,7 +7,7 @@ const OurServices = () => {
             <h1 className='text-5xl font-bold'>
                 Shop By Categories
             </h1>
-            <p className='w-4/5 text-2xl font-serif'>
+            <p className='w-4/5 text-2xl'>
             Find Your Perfect Piece: Shop by Range and Discover the Art That Speaks to You! </p>
            <div className='w-4/5 pt-10'>
            <Shop />

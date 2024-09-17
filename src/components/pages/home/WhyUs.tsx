@@ -33,7 +33,7 @@ const WhyUs = () => {
             <h1 className='text-5xl font-bold'>
                 Why Us
             </h1>
-            <p className='w-4/5 font-serif text-3xl text-center'>
+            <p className='w-4/5 text-3xl text-center'>
                 Turning your ideas into stunning digital art with unmatched artistry and detail.      </p>
             <div className='w-4/5  flex justify-evenly'>
 
