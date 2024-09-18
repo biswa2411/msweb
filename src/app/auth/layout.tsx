@@ -8,11 +8,11 @@ export default function DashboardLayout({
 }) {
   return (
 
-    <div className="bg-gradient-to-r from-emerald-500 to-emerald-900 min-h-screen flex justify-center px-16 items-center relative ">
+    <div className="bg-gradient-to-r from-amber-100 via-lime-200 to-green-200 min-h-screen flex justify-center px-16 items-center relative ">
 
-        <div className="absolute top-1/3 right-1/2 size-80 bg-gradient-to-r from-amber-200 to-yellow-500 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"/>
-        <div className="absolute top-1/3 left-1/2 size-80 bg-gradient-to-r from-blue-200 to-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"/>
-        <div className="absolute top-1/2 left-[42%] size-80 bg-gradient-to-r from-slate-300 to-slate-500rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"/>
+        <div className="absolute top-1/3 right-1/2 size-80 bg-lime-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"/>
+        <div className="absolute top-1/3 left-1/2 size-80 bg-amber-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"/>
+        <div className="absolute top-1/2 left-[42%] size-80 bg-fuchsia-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"/>
      
 
      <div className="w-full  justify-center items-center flex">
