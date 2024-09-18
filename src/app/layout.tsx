@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const montserrat = Montserrat({
@@ -23,6 +24,7 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.className} `}>
       <head><link rel="icon" href="/logo.svg" sizes="any" /></head>
       <body>{children}</body>
+      <Analytics />
     </html>
   );
 }
