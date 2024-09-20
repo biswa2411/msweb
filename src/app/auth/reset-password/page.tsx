@@ -7,7 +7,7 @@ const Resetpage = () => {
   const router = useRouter()
 
   return (
-    <div className="flex flex-col gap-5 w-[500px]">
+    <div className="flex flex-col gap-5 w-[400px]">
       {" "}
       <div className="text-[#fff3e3] text-center font-['InstagramSans-Bold',_sans-serif] text-[32px] font-bold  left-[calc(50%_-_462px)] top-[340px]">
         Reset Password{" "}

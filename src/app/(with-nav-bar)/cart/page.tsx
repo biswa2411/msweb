@@ -93,7 +93,7 @@ const Cart = () => {
                     className=" p-[2%]"
                   />
                 </div>
-                <div className="p-[7%] w-[300px] sm:w-[500px] text-[16px] text-[#000000]">
+                <div className="p-[7%] w-[300px] sm:w-[400px] text-[16px] text-[#000000]">
                   <h4 className="font-bold text-[20px]">
                     Customize Your Memory:
                   </h4>
