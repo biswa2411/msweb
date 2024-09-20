@@ -18,7 +18,7 @@ const Order = () => {
   const columns = [
     { key: "order", label: "Order#" },
     { key: "product", label: "Product" },
-    { key: "purchasedDate", label: "Dat Purchased" },
+    { key: "purchasedDate", label: "Date Purchased" },
     { key: "total", label: "Total" },
     { key: "type", label: "Type" },
   ];
