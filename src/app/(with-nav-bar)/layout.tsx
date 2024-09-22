@@ -6,8 +6,6 @@ export default function NavigationLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const menuId = "primary-search-account-menu";
-
   return (
     <section className="bg-white">
       {/* Include shared UI here e.g. a header or sidebar */}

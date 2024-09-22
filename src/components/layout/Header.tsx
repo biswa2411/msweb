@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Person, Search, ShoppingCart } from "@mui/icons-material";
+import { AccountCircle, ContactPage, Home, InfoRounded, Login, Person, Search, Shop, ShoppingCart } from "@mui/icons-material";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import IconButton from "@components/lib/buttons/IconButton";
@@ -13,16 +13,13 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  styled,
+  useTheme,
 } from "@mui/material";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
-import DeleteIcon from "@mui/icons-material/Delete";
-import ReportIcon from "@mui/icons-material/Report";
-import AllInboxIcon from "@mui/icons-material/AllInbox";
-import SendIcon from "@mui/icons-material/Send";
-import StarBorderIcon from "@mui/icons-material/StarBorder";
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 export const Header = () => {
+
   const router = useRouter();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
@@ -30,12 +27,10 @@ export const Header = () => {
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Shop", path: "/shop" },
-    { title: "Tutorials", path: "/tutorials" },
+    // { title: "Tutorials", path: "/tutorials" },
     { title: "About", path: "/about" },
     { title: "Contact Us", path: "/contact-us" },
   ];
-  const user = "biswajit-routray";
-
 
   useEffect(() => {
     if (window.innerWidth < 1150) {
@@ -65,21 +60,12 @@ export const Header = () => {
 
   const DrawerList = (
     <div
-      className="w-[100%] bg-primary h-full text-white"
+      className=" bg-primary h-full text-white"
       role="presentation"
       onClick={toggleDrawer(false)}
     >
-      <div className="relative" onClick={toggleDrawer(false)}>
-        <Image
-          src={"/crossIcon.svg"}
-          alt="logo"
-          height={20}
-          width={20}
-          objectFit="contain"
-          className="absolute top-1 right-1 cursor-pointer"
-        />
-      </div>
-      <div className="flex w-full justify-center my-5">
+
+      <div className="flex w-full justify-center py-5 px-2 relative">
         <button
           className="relative cursor-pointer shadow-custom rounded-full mt-2"
           onClick={() => router.push("/")}
@@ -92,16 +78,20 @@ export const Header = () => {
             objectFit="contain"
           />
         </button>
+      <div className="absolute right-2 top-2">
+      <IconButton icon={ChevronLeftIcon} onClick={()=>setOpen(false)}/>
       </div>
-      <List>
+          
+      </div>
+      <List className="flex flex-col pl-10 pr-14 gap-3 ">
         {[
-          { text: "Inbox", icon: <InboxIcon className="text-white" /> },
-          { text: "Starred", icon: <StarBorderIcon className="text-white" /> },
-          { text: "Send email", icon: <SendIcon className="text-white" /> },
-          { text: "Drafts", icon: <DraftsIcon className="text-white" /> },
+          { text: "Home", icon: <Home className="text-white" /> , path:'/'},
+          { text: "Shop", icon: <Shop className="text-white" /> , path:'/shop'},
+          { text: "About", icon: <InfoRounded className="text-white" />, path:"/about" },
+          { text: "Contact Us", icon: <ContactPage className="text-white" />, path:'/contact-us' },
         ].map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => router.push(item?.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -109,14 +99,15 @@ export const Header = () => {
         ))}
       </List>
       <Divider sx={{ bgcolor: "gray" }} />
-      <List>
+      <List className="flex flex-col pl-10 pr-14 gap-3 ">
         {[
-          { text: "All mail", icon: <AllInboxIcon className="text-white" /> },
-          { text: "Trash", icon: <DeleteIcon className="text-white" /> },
-          { text: "Spam", icon: <ReportIcon className="text-white" /> },
+
+          { text: "Cart", icon: <ShoppingCart className="text-white" />, path:"/cart" },
+          { text: "User", icon: <AccountCircle className="text-white" />, path:"/user" },
+          { text: "Login", icon: <Login className="text-white" />, path:"/auth/signin" },
         ].map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => router.push(item?.path)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
@@ -177,7 +168,7 @@ export const Header = () => {
         <IconButton
           icon={Search}
           onClick={() => {
-            router.push(`/${user}`);
+            router.push(`/user`);
           }}
         />
         <IconButton icon={ShoppingCart} onClick={() => router.push("/cart")} />
