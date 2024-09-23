@@ -1,0 +1,15 @@
+.wrapper{
+    @apply flex flex-col gap-5 sm:w-[400px] w-full p-2
+}
+.title{
+    @apply text-[#fff3e3] text-center font-['InstagramSans-Bold',_sans-serif] text-[32px] font-bold
+}
+.btn-switch{
+    @apply bg-[#1e342c] rounded-md p-2 flex flex-row gap-4 items-start justify-start w-full h-14 overflow-hidden
+}
+.final-btn{
+    @apply bg-[#fff3e3] hover:bg-[#ded6cc] active:bg-[#bfb5a9] rounded-md py-4 px-6  flex flex-col  items-center justify-center w-full h-14  overflow-hidden cursor-pointer
+}
+.btn-text{
+    @apply text-[#0e2920] text-left font-['InstagramSans-Bold',_sans-serif] text-base font-bold uppercase relative
+}

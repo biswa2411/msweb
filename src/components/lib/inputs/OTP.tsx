@@ -143,14 +143,14 @@ export function OTP({
     };
 
     return (
-        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }} className='gap-1 mds:gap-2'>
             {new Array(length).fill(null).map((_, index) => (
                 <React.Fragment key={index}>
                     <BaseInput
                         slots={{
                             input: InputElement,
                         }}
-                        aria-label={`Digit ${index + 1} of OTP`}
+                        type='number'
                         slotProps={{
                             input: {
                                 ref: (ele) => {
@@ -164,6 +164,7 @@ export function OTP({
                             },
                         }}
                     />
+
                     {index === length - 1 ? null : separator}
                 </React.Fragment>
             ))}
@@ -172,15 +173,6 @@ export function OTP({
 }
 
 
-
-const blue = {
-    100: '#DAECFF',
-    200: '#80BFFF',
-    400: '#3399FF',
-    500: '#007FFF',
-    600: '#0072E5',
-    700: '#0059B2',
-};
 
 const grey = {
     50: '#F3F6F9',
@@ -206,8 +198,10 @@ const InputElement = styled('input')(
     padding: 8px 0px;
     border-radius: 8px;
     text-align: center;
-    color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ?"red" : '#2F463E'};
+    justify-content:center;
+    
+    color:  '#fff';
+    background: ${theme.palette.mode === 'dark' ? '#2F463E' : '#2F463E'};
     border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
     box-shadow: 0px 2px 4px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
         };
@@ -218,12 +212,24 @@ const InputElement = styled('input')(
   
     &:focus {
       border-color:'#B88E2F';
-      box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[600] : blue[200]};
     }
   
     // firefox
     &:focus-visible {
       outline: 0;
+    }
+
+
+    // Media query for very small screens
+    @media (max-width: 700px) {
+      height: 50px;
+        width: 50px;
+      font-size: 1rem;
+    }
+       @media (max-width: 430px) {
+      height: 40px;
+        width: 40px;
+      font-size: 0.8rem;
     }
   `,
 );

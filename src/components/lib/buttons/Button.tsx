@@ -17,7 +17,7 @@ const Button: FC<NormalButtonProps> = ({ label = '', active = false, onClick, is
 
     return (
         <button
-            className={`w-full h-full rounded-[40px] ${active ? 'bg-ms_white' : 'text-ms_white'}`}
+            className={`w-full h-full rounded-md ${active ? 'bg-ms_white' : 'text-ms_white'}`}
             onClick={handleClick}
             disabled={isDisable} // If the button should be disabled, add this attribute
         >

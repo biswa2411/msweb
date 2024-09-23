@@ -8,39 +8,44 @@ const StyledTextField = (props: any) => {
 
     const defaultSx: SxProps<Theme> = {
         '& .MuiOutlinedInput-root': {
-            backgroundColor: '#2F463E', // Background color of the input field
+            // backgroundColor: '#FFF3E3', // Background color of the input field
             '& fieldset': {
-                borderColor: '#FFF3E3',
+                borderColor:  '#2F463E',
                 borderWidth: '0.1', // Default border color
             },
             '&:hover fieldset': {
-                borderColor: '#FFF3E3', // Border color on hover
+                borderColor:  '#2F463E', // Border color on hover
             },
             '&.Mui-focused fieldset': {
                 borderColor: '#B88E2F', // Border color when focused
             },
             '& input': {
-                color: '#FFF3E3', // Input text color
+                color:  '#FFF3E3', // Input text color
+                fontWeight: 'bold', 
+                 fontSize:"18px"
             },
         },
         '& .MuiInputLabel-root': {
-            color: '#FFF3E3', // Label color when input is blank
-            
+            color:  '#FFF3E3', // Label color when input is blank
+                 fontWeight: 'bold',
             '&.Mui-focused': {
-                color: '#B88E2F', // Label color when focused
-                // fontSize: '20px', // Label font size
+                color:'#2F463E', // Label color when focused
                 fontWeight: 'bold',
+               
             },
         },
-        // '& .MuiInputLabel-shrink': {
-        //     fontSize: '30px', // Label font size when shrink
-        //     fontWeight: 'bold', // Label font weight when shrink
-        //   },
+        '& .MuiInputLabel-shrink': {
+            // fontSize: '30px', // Label font size when shrink
+            color: "#1E342d",
+            
+            fontWeight: 'bold', // Label font weight when shrink
+          },
       
     };
 
     return (
         <TextField
+        
             variant="outlined"
             sx={{ ...defaultSx, ...sx }} // Combine default styles with any additional styles passed in
             {...otherProps} // Spread other props to allow customizability
