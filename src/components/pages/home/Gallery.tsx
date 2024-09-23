@@ -63,28 +63,27 @@ const Gallery = () => {
             mrp: 3200,
             offerPrice: 2600,
         },
-        
+
     ];
 
     return (
-        <section className=' w-full bg-primary p-14 text-white overflow-hidden'>
-            <div className='flex flex-row justify-between'>
-                <h1 className='text-[32px] leading-[41.6px] font-bold w-1/3' >Elevate Your Walls: Explore the Newest in Canvas and Matte Artistry!</h1>
-                <p className='text-[16px] leading-[24px] font-semibold w-1/3'>Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+        <section className=' w-full bg-primary px-2 sm:p-14 sm:py-14 py-10  text-white overflow-hidden flex flex-col gap-10'>
+            <div className='flex flex-col sm:flex-row justify-between gap-4'>
+                <h1 className='text-lg sm:text-[32px] sm:leading-[41.6px] font-bold w-full sm:w-1/3' >Elevate Your Walls: Explore the Newest in Canvas and Matte Artistry!</h1>
+                <p className='text-[16px] leading-[24px] font-light sm:font-semibold w-full sm:w-1/3'>Norem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
             </div>
-            <div>
 
-                <div className='grid grid-cols-4 gap-5 w-full mt-10  overflow-x-auto'>
+            <div className='flex flex-wrap gap-2 w-full overflow-x-auto justify-center'>
 
-                    {
-                        products.map((i, k) => {
-                            return (
-                                <ProductCard key={k} image={i.image} mrp={i.mrp} name={i.name} offerPrice={i.offerPrice} />
-                            )
-                        })
-                    }
-                </div>
+                {
+                    products.map((i, k) => {
+                        return (
+                            <ProductCard key={k} image={i.image} mrp={i.mrp} name={i.name} offerPrice={i.offerPrice} />
+                        )
+                    })
+                }
             </div>
+
 
         </section>
     )

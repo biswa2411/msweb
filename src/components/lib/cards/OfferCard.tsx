@@ -2,7 +2,7 @@
 
 const OfferCard = () => {
     return (
-        <div className="h-80 w-full bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-4 flex items-center space-x-4">
+        <div className="sm:h-80 h-20 w-full bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg p-4 flex items-center space-x-4 overflow-hidden">
         {/* Image Section */}
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnnFf6DXcgRxe71BOQm1orHpnKjJloo9c2jg&s"

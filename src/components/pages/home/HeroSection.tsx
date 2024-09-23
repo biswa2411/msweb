@@ -28,8 +28,8 @@ const HeroSection = () => {
     const slideImages = ["/home/hero/hh1.webp", "/home/hero/hh2.webp", "/home/hero/hh3.webp"]
 
     return (
-        <section className="h-screen flex flex-col bg-primary w-full -mt-[92px] px-14 pt-[92px] gap-4">
-            <div className='w-full h-4/5 left-0 flex justify-between p-2 gap-4 flex-col lg:flex-row'>
+        <section className="sm:h-screen flex flex-col bg-primary w-full  sm:px-14  gap-4">
+            <div className='w-full sm:h-4/5 left-0 flex justify-between p-2 gap-4 flex-col lg:flex-row'>
                 <div className="h-full w-full lg:w-4/5 ">
                     <Slide  {...properties}>
                         {slideImages.map((each, i) => (
@@ -56,7 +56,7 @@ const HeroSection = () => {
                         ))}
                     </Slide>
                 </div>
-                <div className='flex flex-row lg:flex-col gap-4 w-full lg:w-1/5'>
+                <div className='flex flex-col sm:flex-row lg:flex-col gap-4 w-full lg:w-1/5'>
                     <OfferCard />
                     <OfferCard />
                     <OfferCard />
