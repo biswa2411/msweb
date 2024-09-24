@@ -83,7 +83,7 @@ export const Header = () => {
       </div>
           
       </div>
-      <List className="flex flex-col pl-10 pr-14 gap-3 ">
+      <List className="flex flex-col pl-10 pr-14 gap-1 ">
         {[
           { text: "Home", icon: <Home className="text-white" /> , path:'/'},
           { text: "Shop", icon: <Shop className="text-white" /> , path:'/shop'},
@@ -98,8 +98,8 @@ export const Header = () => {
           </ListItem>
         ))}
       </List>
-      <Divider sx={{ bgcolor: "gray" }} />
-      <List className="flex flex-col pl-10 pr-14 gap-3 ">
+      <Divider sx={{ bgcolor: "gray" , my:2}} />
+      <List className="flex flex-col pl-10 pr-14 gap-1 ">
         {[
 
           { text: "Cart", icon: <ShoppingCart className="text-white" />, path:"/cart" },

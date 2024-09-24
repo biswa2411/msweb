@@ -51,6 +51,7 @@ const config: Config = {
         custom: "0px 1px 4px rgba(0, 0, 0, 0.28)",
       },
       screens: {
+        smx:'360px',
         xsm: "430px",
         mds: "550px",
         md: "820px",

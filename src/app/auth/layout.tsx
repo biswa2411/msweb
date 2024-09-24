@@ -1,6 +1,5 @@
 'use client'
 import { Close } from '@mui/icons-material';
-import { IconButton } from '@mui/material';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 
@@ -15,11 +14,7 @@ export default function DashboardLayout({
   return (
 
     <div className="bg-gradient-to-r from-amber-100 via-lime-200 to-green-200 h-screen w-screen flex justify-center md:px-16 items-center md:relative">
-      <link rel="preload" href="/productInfo/img1.svg" as="image" />
-      <link rel="preload" href="/productInfo/img2.svg" as="image" />
-      <link rel="preload" href="/productInfo/img3.svg" as="image" />
-      <link rel="preload" href="/productInfo/img4.svg" as="image" />
-      <link rel="preload" href="/productInfo/img5.svg" as="image" />
+   
 
       <div className="absolute sm:flex flex-wrap  bg items-center justify-center h-screen w-screen overflow-hidden hidden">
         {[
@@ -34,10 +29,11 @@ export default function DashboardLayout({
         ].map((url, idx) => (
           <div
             key={idx}
-            className={`size-80 bg-no-repeat bg-center bg-cover mix-blend-multiply filter blur-md opacity-70 animate-blob ${idx % 2 === 0 ? 'animation-delay-2000' : 'animation-delay-4000'
+            className={`size-80 relative  mix-blend-multiply filter blur-md opacity-70 animate-blob ${idx % 2 === 0 ? 'animation-delay-2000' : 'animation-delay-4000'
               }`}
-            style={{ backgroundImage: `url(${url})` }}
-          />
+          >
+             <Image src={url} alt={'bg-img'} fill priority />
+          </div>
         ))}
       </div>
 

@@ -40,6 +40,18 @@ const mockItems = [
 
 const TestimonialCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      // Function to update width state
+      const handleResize = () => setWidth(window.innerWidth);
+  
+      // Listen to window resize event
+      window.addEventListener('resize', handleResize);
+  
+      // Cleanup the event listener on component unmount
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const {
         carouselFragment,
@@ -47,7 +59,7 @@ const TestimonialCarousel = () => {
         slideToNextItem,
         getCurrentActiveSlide
     } = useSpringCarousel({
-        itemsPerSlide: 3,
+        itemsPerSlide: width<840?1:3,
         withLoop: true,
         initialStartingPosition: 'center',
         gutter: 24,
@@ -56,17 +68,14 @@ const TestimonialCarousel = () => {
             renderItem: (
                 <div
                     key={item.id}
-                    className={` aspect-[2] w-full justify-start py-5 gap-5 items-center flex flex-col transition-all duration-700 rounded-3xl bg-white ${activeIndex === index ? 'z-10 scale-150 ' : 'opacity-55 '}`}
-                    style={{
-                        transform: activeIndex === index ? 'scale(1.2) ' : 'scale(0.8)',
-                        zIndex: activeIndex === index ? 10 : 1
-                    }}
+                    className={`w-[95%] xmd:w-full justify-center xmd:justify-start py-5 gap-5 items-center flex flex-col transition-all duration-700 rounded-3xl bg-white ${activeIndex === index ? 'z-10 scale-100 xl:scale-110' : 'opacity-55 hidden md:flex xl:scale-90 md:scale-75'}`}
+                  
                 >
                     <div className='flex flex-col gap-2 items-center justify-center '>
 
                         {item?.image ? <img src={item?.image} alt="ss" className='h-20 w-20 rounded-full' /> : <div className='h-20 w-20 rounded-full bg-gray-500' />}
                         <Rating readOnly name="half-rating" defaultValue={item.rating} precision={0.1} /></div>
-                    <p className=' w-4/5 text-center text-sm'> {item.content}</p>
+                    <p className=' w-4/5 text-center text-xs md:text-sm'> {item.content}</p>
                 </div>
             )
         }))
@@ -83,18 +92,20 @@ const TestimonialCarousel = () => {
     return (
         <div className="py-10 relative bg-primary justify-center flex flex-col items-center" >
             
-            <h1 className='text-5xl font-bold text-secondary'>
+            <h1 className='text-2xl md:text-5xl font-bold text-secondary'>
         Happy Customers
             </h1>
          
-            <button onClick={handlePrev} className="absolute top-1/2 -translate-y-1/2 -translate-x-full left-[10%]">
+            <button onClick={handlePrev} className="absolute top-1/2 -translate-y-1/2 z-10 -translate-x-full left-[10%]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                 </svg>
             </button>
-            <div className="mx-auto w-[85%] overflow-x-clip py-[4%] relative">
+           <div className='flex w-full'>
+           <div className="mx-auto flex w-1/2 xmd:w-full items-center justify-center overflow-x-clip py-[4%] relative ">
                 {carouselFragment}
             </div>
+           </div>
             <button onClick={handleNext} className="absolute top-1/2 -translate-y-1/2 translate-x-full right-[10%]">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

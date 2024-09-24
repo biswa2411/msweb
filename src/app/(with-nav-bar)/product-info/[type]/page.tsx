@@ -2,6 +2,7 @@
 
 import { NumberInput } from "@components/lib/inputs/NumberInput";
 import Shop from "@components/pages/shop";
+import { ShoppingBag, ShoppingCart } from "@mui/icons-material";
 import { Rating, TextField } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
@@ -159,54 +160,83 @@ const ProductInfo = () => {
 
 
   return (
-    <div className="px-[10%] py-[5%]">
+    <div className="px-2 md:px-[5%] py-2 md:py-[2%] overflow-hidden">
       <div className="">
         <div className="flex-row md:flex gap-3">
-          <div className="md:w-[50%] ">
-            <div className="md:flex justify-between items-start h-[65vh] gap-5">
-              <div className="flex flex-row md:flex-col justify-between h-full cursor-pointer ">
+          <div className="w-full md:w-[50%] ">
+            <div className="flex flex-col-reverse lg:flex-row justify-between items-start h-[65vh] gap-5">
+              <div className="flex flex-row lg:flex-col lg:justify-between lg:h-full gap-2 cursor-pointer  ">
                 {smallImages.map((item, index) => (
-                  <div key={index} onClick={() => setSelectedImage(item.img)} >
+                  <div key={index} onClick={() => setSelectedImage(item.img)} className="flex relative lg:size-24 smx:size-16  size-14" >
                     <Image
                       src={item.img}
                       alt="profile image"
-                      height={150}
-                      width={120}
+                    fill
                       priority
+                      objectFit="cover"
                       className={`border hover:border-[#0E2920] rounded-lg ${selectedImage === item.img ? 'border-[#0E2920]' : ''}`}
                     />
                   </div>
                 ))}
               </div>
-              <img src={selectedImage} alt="selected image" className="h-full w-full object-cover rounded-lg " />
-              {/* <Image
-                src={selectedImage}
-                alt="profile image"
-                height={300}
-                width={600}
-                objectFit=""
-                priority
-                className="flex justify-center items-center rounded-lg overflow-hidden "
-              /> */}
+              <div className="h-full w-full relative">
+                <Image
+                  src={selectedImage}
+                  alt="profile image"
+                  fill
+                  priority
+                  objectFit="cover"
+                  className="rounded-lg"
+
+                />
+              </div>
             </div>
             <div className="flex justify-between py-[2%] gap-2">
-              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
-                <Image
-                  src="/shopVan.svg"
-                  alt="profile image"
-                  height={20}
-                  width={20}
-                />
+              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-lg shadow-lg py-2 w-full hover:bg-[#917b47]">
+                <ShoppingCart />
                 <button className="">Add to Cart</button>
               </div>
-              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-full shadow-lg py-2 w-full hover:bg-[#917b47]">
-                <Image
-                  src="/shopVan.svg"
-                  alt="profile image"
-                  height={20}
-                  width={20}
-                />
+              <div className="flex justify-center items-center cursor-pointer gap-2 font-medium text-[16px] text-white bg-[#B88E2F] rounded-lg shadow-lg py-2 w-full hover:bg-[#917b47]">
+                <ShoppingBag />
                 <button className="">Buy Now</button>
+              </div>
+            </div>
+            <div className="py-2 space-y-2 hidden md:flex flex-col">
+              <h4 className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px]">
+                Description
+              </h4>
+              <p>
+                We offer different services to turn your photos, ideas, or
+                memories into beautiful artworks. You can choose digital
+                painting and our artists will create your custom artworks with
+                high quality and fast delivery. You can also customize and
+                revise your artworks until you are happy.
+              </p>
+              <p>
+                We offer different services to turn your photos, ideas, or
+                memories into beautiful artworks. You can choose digital
+                painting and our artists will create your custom artworks with
+                high quality and fast delivery. You can also customize and
+                revise your artworks until you are happy.
+              </p>
+            </div>
+            <div className="py-2 space-y-2 hidden md:flex flex-col w-full">
+              <h4 className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px]">
+                Additional information
+              </h4>
+              <div className="bg-red-400 w-full">
+                {additionalInfo.map((info, index) => (
+                  <div
+                    className="flex bg-[#F0F0F0] gap-1 py-2 border border-b-gray-300 px-4"
+                    key={index}
+                  >
+                    <p className="font-semibold w-20">
+                      {info.label}
+                      {":"}
+                    </p>
+                    <p className="w-full">{info.value}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -215,7 +245,7 @@ const ProductInfo = () => {
             <h1 className="text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold">
               Digital Painting
             </h1>
-            <h3 className="text-[#000000] font-[16px]">
+            <h3 className="text-[#000000] text-sm  md:text-[16px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
               voluptas placeat, recusandae fugit neque vel velit odio laborum
               quia odit necessitatibus eligendi, natus sed officia eos provident
@@ -227,11 +257,11 @@ const ProductInfo = () => {
             {price.mrp ? <p className="font-normal text-[12px] md:text-[18px] lg:text-[18px] text-gray-400 line-through decoration-black deco">
               ₹{price.mrp}
             </p> : <></>}
-            <Rating name="half-rating" defaultValue={2.3} precision={0.1} />
+            <Rating name="half-rating" readOnly defaultValue={2.3} precision={0.1} />
 
             {/* Frame Size */}
             <div className="">
-              <p className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px] pb-2">
+              <p className="font-semibold  text-[14px] md:text-[18px] lg:text-[20px] pb-2">
                 Frame size
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
@@ -242,7 +272,7 @@ const ProductInfo = () => {
                       name != "Customize" ? setScale({ h, w }) : "";
                       setActiveSize(name)
                     }}
-                    className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border  ${activeSize == name ? 'bg-[#B88E2F] text-white' : ''}`}
+                    className={`font-medium  text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border  ${activeSize == name ? 'bg-[#B88E2F] text-white' : ''}`}
                   >
                     {name}
                   </button>
@@ -274,20 +304,20 @@ const ProductInfo = () => {
 
             {/* Choose Variant */}
             <div className="">
-              <p className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px] pb-2">
+              <p className="font-semibold  text-[14px] md:text-[18px] lg:text-[20px] pb-2">
                 Choose Variant
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
                 <button
                   onClick={() => setIsCanvas(true)}
-                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
+                  className={`font-medium text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
                 >
                   Canvas Paint
                 </button>
 
                 <button
                   onClick={() => setIsCanvas(false)}
-                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
+                  className={`font-medium text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isCanvas ? 'bg-[#B88E2F] text-white' : ''}`}
                 >
                   Matte Paint
                 </button>
@@ -296,21 +326,21 @@ const ProductInfo = () => {
 
             {/* Choose Option */}
             <div className="">
-              <p className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px] pb-2">
+              <p className="font-semibold  text-[14px] md:text-[18px] lg:text-[20px] pb-2">
                 Choose Option
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 
                 <button
                   onClick={() => setIsHardCopy(true)}
-                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
+                  className={`font-medium text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
                 >
                   Hard Copy
                 </button>
 
                 <button
                   onClick={() => setIsHardCopy(false)}
-                  className={`font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
+                  className={`font-medium text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border ${!isHardCopy ? 'bg-[#B88E2F] text-white' : ''}`}
                 >
                   Soft Copy
                 </button>
@@ -320,33 +350,26 @@ const ProductInfo = () => {
 
             {/* No. of Person in your photo */}
             <div className="">
-              <p className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px] pb-2">
+              <p className="font-semibold  text-[14px] md:text-[18px] lg:text-[20px] pb-2">
                 No. of Person in your photo
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-                {/* {personsAdded.map((size, index) => (
-                  <button
-                    key={index}
-                    className="font-medium text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border "
-                  >
-                    {size}
-                  </button>
-                ))} */}
+               
 
                 <NumberInput min={1} max={99} defaultValue={personCount} onChange={(event, newValue) => setPersonCount(newValue ?? 1)} />
               </div>
             </div>
 
-            <div className="pt-10">
+            <div className="md:pt-10 gap-2 flex flex-row">
               <input
                 type="text"
                 name="coupon"
                 placeholder="Enter Pincode"
                 // value={formData.firstName}
                 // onChange={handleInputChange}
-                className="border border-black pl-2 py-3 px-5 rounded-full mr-2"
+                className="border border-black  py-2 px-2 rounded-lg  w-1/2"
               />
-              <button className=" bg-[#B88E2F] hover:bg-[#917b47] font-bold py-3 px-5 rounded-full text-white">
+              <button className=" bg-[#B88E2F] hover:bg-[#917b47]   text-[12px] md:text-[16px] font-bold py-2 px-5 rounded-lg text-white">
                 Check Pincode
               </button>
             </div>
@@ -366,8 +389,8 @@ const ProductInfo = () => {
             </label>
             <input id="file-upload" type="file" className="hidden" />
 
-            <div className="py-2 space-y-2">
-              <h4 className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px]">
+            <div className="py-2 space-y-2 text-[12px]  flex md:hidden  flex-col">
+              <h4 className="font-semibold  text-[14px] ">
                 Description
               </h4>
               <p>
@@ -385,21 +408,21 @@ const ProductInfo = () => {
                 revise your artworks until you are happy.
               </p>
             </div>
-            <div className="py-2 space-y-2">
-              <h4 className="font-semibold  text-[16px] md:text-[18px] lg:text-[20px]">
+            <div className="py-2 space-y-2 flex md:hidden w-full flex-col">
+              <h4 className="font-semibold  text-[14px] ">
                 Additional information
               </h4>
-              <div>
+              <div className="w-full">
                 {additionalInfo.map((info, index) => (
                   <div
-                    className="flex bg-[#F0F0F0] gap-1 py-2 border border-b-gray-300 px-4"
+                    className="flex bg-[#F0F0F0]  py-2 border border-b-gray-300 px-4 text-[12px] w-full"
                     key={index}
                   >
-                    <p className="font-semibold">
+                    <p className="font-semibold w-20">
                       {info.label}
                       {":"}
                     </p>
-                    <p>{info.value}</p>
+                    <p className="w-full">{info.value}</p>
                   </div>
                 ))}
               </div>
@@ -424,45 +447,9 @@ const ProductInfo = () => {
           Related Product
         </div>
       </div>
-      {/* Related Products */}
       <Shop />
 
-      {/* <div className="bg-[#F0F0F0] py-[3%] px-[5%]">
-        <h3 className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold pb-[3%]">
-          Related Products
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
-          {shoppingItems.map((items, index) => (
-            <div
-              key={index}
-              className="border hover:border-[#0E2920] rounded-lg"
-            >
-              <div className="">
-                <Link href={`/productInfo`}>
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src={items.img}
-                      alt="profile image"
-                      height={400}
-                      width={400}
-                      className="rounded-lg "
-                    />
-                  </div>
-                  <div className="flex justify-between items-center py-3 px-2">
-                    <p className="font-bold text-[#000000] text-[16px] md:text-[20px]">
-                      {items.paintingType}
-                    </p>
-                    <button className="flex border hover:bg-[#0E2920] text-[#0E2920] hover:text-white border-[#0E2920] py-2 px-3 rounded-full">
-                      <p>Starts at ₹</p>
-                      <p>{items.price}</p>
-                    </button>
-                  </div>
-                </Link>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
+
     </div>
   );
 };
