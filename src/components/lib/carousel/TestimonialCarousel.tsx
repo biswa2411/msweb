@@ -40,11 +40,11 @@ const mockItems = [
 
 const TestimonialCarousel = () => {
     const [activeIndex, setActiveIndex] = useState(0);
-    const [width, setWidth] = useState(window.innerWidth);
+    const [width, setWidth] = useState<number>();
 
     useEffect(() => {
       // Function to update width state
-      const handleResize = () => setWidth(window.innerWidth);
+      const handleResize = () => setWidth(innerWidth);
   
       // Listen to window resize event
       window.addEventListener('resize', handleResize);
@@ -59,7 +59,7 @@ const TestimonialCarousel = () => {
         slideToNextItem,
         getCurrentActiveSlide
     } = useSpringCarousel({
-        itemsPerSlide: width<840?1:3,
+        itemsPerSlide: width&&width<840?1:3,
         withLoop: true,
         initialStartingPosition: 'center',
         gutter: 24,

@@ -2,8 +2,6 @@
 import TestimonialCarousel from '@components/lib/carousel/TestimonialCarousel';
 import axios from 'axios';
 import React from 'react'
-import { Autoplay, Pagination } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
 
 const GoogleReviews = () => {
 
