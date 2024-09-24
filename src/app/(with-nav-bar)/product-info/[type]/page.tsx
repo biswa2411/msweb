@@ -173,6 +173,7 @@ const ProductInfo = () => {
                       alt="profile image"
                     fill
                       priority
+                      loading="eager"
                       objectFit="cover"
                       className={`border hover:border-[#0E2920] rounded-lg ${selectedImage === item.img ? 'border-[#0E2920]' : ''}`}
                     />
@@ -185,6 +186,7 @@ const ProductInfo = () => {
                   alt="profile image"
                   fill
                   priority
+                  loading="eager"
                   objectFit="cover"
                   className="rounded-lg"
 
