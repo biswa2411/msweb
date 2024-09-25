@@ -40,16 +40,9 @@ export const NumberInput = React.forwardRef(function CustomNumberInput(
 //   return <NumberInput aria-label="Quantity Input" min={1} max={99} />;
 // }
 
-const blue = {
-  100: '#daecff',
-  200: '#b6daff',
-  300: '#66b2ff',
-  400: '#3399ff',
-  500: '#007fff',
-  600: '#0072e5',
-  700: '#0059B2',
-  800: '#004c99',
-};
+const golden = {
+  500: '#B88E2F'
+}
 
 const grey = {
   50: '#F3F6F9',
@@ -97,12 +90,12 @@ const StyledInput = styled('input')(
   text-align: center;
 
   &:hover {
-    border-color: ${blue[400]};
+    border-color: ${golden[500]};
   }
 
   &:focus {
-    border-color: ${blue[400]};
-    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[700] : blue[200]};
+    border-color: ${golden[500]};
+    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
   }
 
   &:focus-visible {
@@ -134,8 +127,8 @@ const StyledButton = styled('button')(
 
   &:hover {
     cursor: pointer;
-    background: ${theme.palette.mode === 'dark' ? blue[700] : blue[500]};
-    border-color: ${theme.palette.mode === 'dark' ? blue[500] : blue[400]};
+    background: ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
+    border-color: ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
     color: ${grey[50]};
   }
 

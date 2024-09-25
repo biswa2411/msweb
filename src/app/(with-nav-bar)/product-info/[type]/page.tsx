@@ -369,7 +369,7 @@ const ProductInfo = () => {
                 placeholder="Enter Pincode"
                 // value={formData.firstName}
                 // onChange={handleInputChange}
-                className="border border-black  py-2 px-2 rounded-lg  w-1/2"
+                className="border border-[#B88E2F] focus:outline-none  py-2 px-2 rounded-lg  w-1/2"
               />
               <button className=" bg-[#B88E2F] hover:bg-[#917b47]   text-[12px] md:text-[16px] font-bold py-2 px-5 rounded-lg text-white">
                 Check Pincode
