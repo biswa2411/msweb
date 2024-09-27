@@ -18,7 +18,7 @@ const OtpVerification = ({
         Just one more step
       </div>
 
-      <p className="w-full text-primary text-wrap text-center">{`Enter the 6-digit code we sent to: xxxxx@gmail.com`}
+      <p className="w-full text-primary text-wrap text-center font-semibold">{`Enter the 6-digit code we sent to: xxxxx@gmail.com`}
 
       </p>
 

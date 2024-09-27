@@ -276,7 +276,8 @@ const ProductInfo = () => {
                     }}
                     className={`font-medium  text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border  ${activeSize == name ? 'bg-[#B88E2F] text-white' : ''}`}
                   >
-                    {name}
+                 {`${name}${name !== 'Customize' ? ` (${h} × ${w} in)` : ''}`}
+
                   </button>
                 ))}
                 {activeSize == "Customize" &&

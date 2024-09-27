@@ -20,13 +20,13 @@ const StyledTextField = (props: any) => {
                 borderColor: '#B88E2F', // Border color when focused
             },
             '& input': {
-                color:  '#FFF3E3', // Input text color
+                color: '#2F463E', // Input text color
                 fontWeight: 'bold', 
                  fontSize:"18px"
             },
         },
         '& .MuiInputLabel-root': {
-            color:  '#FFF3E3', // Label color when input is blank
+            color: '#2F463E', // Label color when input is blank
                  fontWeight: 'bold',
             '&.Mui-focused': {
                 color:'#2F463E', // Label color when focused

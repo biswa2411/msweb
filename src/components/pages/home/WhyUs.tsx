@@ -35,11 +35,11 @@ const WhyUs = () => {
             </h1>
             <p className='w-4/5 text-lg md:text-3xl text-center'>
                 Turning your ideas into stunning digital art with unmatched artistry and detail.      </p>
-            <div className='w-4/5  flex flex-wrap justify-center gap-3'>
+            <div className='w-4/5  flex flex-wrap justify-center gap-3 md:gap-10 my-10'>
 
                 {features.map((i, k) => {
-                    return (<div key={k} className=' w-52 gap-3 flex flex-col items-center justify-between'>
-                        <div className='flex flex-col gap-2 justify-center items-center'>
+                    return (<div key={k} className=' w-52 md:w-60 h-52 md:h-60 gap-1 flex flex-col items-center justify-between'>
+                        <div className='flex flex-col gap-2 justify-center items-center '>
                             <div className="size-28 relative rounded-full bg-white bg-opacity-10 backdrop-blur-lg shadow-custom p-4 flex items-center justify-center">
                                 <Image src={i?.gif}
                                     fill
@@ -53,9 +53,11 @@ const WhyUs = () => {
                                 {i?.name}
                             </p>
                         </div>
-                        <p className='text-center text-xs md:text-lg'>
-                            {i?.description}
-                        </p>
+                        <div >
+                            <p className='text-center text-xs md:text-sm'>
+                                {i?.description}
+                            </p>
+                        </div>
                     </div>)
                 })}
             </div>

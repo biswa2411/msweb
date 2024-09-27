@@ -19,7 +19,7 @@ const ForgetPassword = ({
         Trouble logging in?{" "}
       </div>
 
-      <p className="w-full text-primary text-wrap text-center">{`Enter your email, phone, or username and we'll send you a link to get back into your account.`}
+      <p className="w-full text-primary text-wrap text-center font-semibold">{`Enter your email, phone, or username and we'll send you a link to get back into your account.`}
       </p>
       <div className="w-full flex flex-col gap-5 text-ms_white">
         <StyledTextField label="Email address or Phone No." variant="outlined" />
