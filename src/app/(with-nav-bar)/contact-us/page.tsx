@@ -25,12 +25,12 @@ const Contact = () => {
 
   return (
     <div className="pb-[8%] bg-white">
-      <div className="md:px-[10%] px-[3%] md:pt-[5%] pb-[2%] flex md:flex-row  flex-col justify-between items-center bg-[#0E2920] font-medium text-[16px] rounded-bl-[100px]">
-        <div className="text-white pr-[2%]">
+      <div className="md:px-[10%] px-[3%] md:pt-[5%] pb-[15%] sm:pb-[2%] flex md:flex-row  flex-col justify-between items-center bg-[#0E2920] font-medium text-[16px] rounded-bl-[100px]">
+        <div className="text-white pr-[2%] md:w-[100%]">
           <h4 className="uppercase font-semibold text-[24px] pt-10">
             Get In Touch With Us
           </h4>
-          <h2 className="font-bold text-[24px] md:text-[28px] lg:text-[48px] uppercase pt-10">
+          <h2 className="font-bold text-[24px] md:text-[28px] lg:text-[42px] uppercase pt-10">
             Gorem ipsum dolor sit amet, consectetur adipiscing elit.
           </h2>
           <p>
@@ -38,7 +38,7 @@ const Contact = () => {
             to contact us using the form.
           </p>
           <p>Our Staff Always Be There To Help You Out. Do Not Hesitate!</p>
-          <div className="flex justify-between py-10">
+          <div className="flex flex-col lg:flex-row  justify-between py-10 gap-2">
             <div className="flex items-center gap-2">
               <svg
                 width="24"
@@ -77,7 +77,7 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div className="w-[100%] px-[10%] md:px-[0%] lg:px-[10%]">
+        <div className="w-full sm:px-[10%] md:px-[0%] lg:px-[5%]">
           <div className="bg-[#1e342c]  p-[10%] rounded-md">
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col justify-center items-center gap-6 ">
