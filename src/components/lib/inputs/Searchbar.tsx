@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Search } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
@@ -31,8 +31,28 @@ const SearchBar = () => {
         suggestion?.item.toLowerCase().includes(search.toLowerCase())
     );
 
+   // Ref to track the search component wrapper, explicitly typed as HTMLDivElement or null
+  const searchRef = useRef<any>(null);
+
+
+    // Handle click outside to reset
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (searchRef.current && !searchRef?.current?.contains(event.target)) {
+                setSearchClicked(false);  // Close the search input
+                setSearch("");  // Reset the search
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+
     return (
-        <div className="shadow-custom rounded-full p-1 bg-primary_lite flex items-center justify-center ring-0 outline-none relative">
+        <div ref={searchRef} className="shadow-custom rounded-full p-1 bg-primary_lite flex items-center justify-center ring-0 outline-none relative">
             <motion.input
                 initial={{ width: 0, opacity: 0, padding: 0 }}
                 className={`rounded-full transition-all text-primary font-semibold text-xs h-full bg-ms_white`}
