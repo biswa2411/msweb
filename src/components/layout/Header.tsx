@@ -17,13 +17,18 @@ import {
   useTheme,
 } from "@mui/material";
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { motion } from "framer-motion";
+import SearchBar from "@components/lib/inputs/Searchbar";
 
 export const Header = () => {
 
   const router = useRouter();
+
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
+  const [searchClicked, setSearchClicked] = useState(false)
+  const [search, setSearch] = useState('')
   const menuItems = [
     { title: "Home", path: "/" },
     { title: "Shop", path: "/shop" },
@@ -78,17 +83,17 @@ export const Header = () => {
             objectFit="contain"
           />
         </button>
-      <div className="absolute right-2 top-2">
-      <IconButton icon={ChevronLeftIcon} onClick={()=>setOpen(false)}/>
-      </div>
-          
+        <div className="absolute right-2 top-2">
+          <IconButton icon={ChevronLeftIcon} onClick={() => setOpen(false)} />
+        </div>
+
       </div>
       <List className="flex flex-col pl-10 pr-14 gap-1 ">
         {[
-          { text: "Home", icon: <Home className="text-white" /> , path:'/'},
-          { text: "Shop", icon: <Shop className="text-white" /> , path:'/shop'},
-          { text: "About", icon: <InfoRounded className="text-white" />, path:"/about" },
-          { text: "Contact Us", icon: <ContactPage className="text-white" />, path:'/contact-us' },
+          { text: "Home", icon: <Home className="text-white" />, path: '/' },
+          { text: "Shop", icon: <Shop className="text-white" />, path: '/shop' },
+          { text: "About", icon: <InfoRounded className="text-white" />, path: "/about" },
+          { text: "Contact Us", icon: <ContactPage className="text-white" />, path: '/contact-us' },
         ].map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton onClick={() => router.push(item?.path)}>
@@ -98,13 +103,13 @@ export const Header = () => {
           </ListItem>
         ))}
       </List>
-      <Divider sx={{ bgcolor: "gray" , my:2}} />
+      <Divider sx={{ bgcolor: "gray", my: 2 }} />
       <List className="flex flex-col pl-10 pr-14 gap-1 ">
         {[
 
-          { text: "Cart", icon: <ShoppingCart className="text-white" />, path:"/cart" },
-          { text: "User", icon: <AccountCircle className="text-white" />, path:"/user" },
-          { text: "Login", icon: <Login className="text-white" />, path:"/auth/signin" },
+          { text: "Cart", icon: <ShoppingCart className="text-white" />, path: "/cart" },
+          { text: "User", icon: <AccountCircle className="text-white" />, path: "/user" },
+          { text: "Login", icon: <Login className="text-white" />, path: "/auth/signin" },
         ].map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton onClick={() => router.push(item?.path)}>
@@ -119,7 +124,7 @@ export const Header = () => {
 
   return (
     <nav
-      className={`w-full mx-auto bg-primary text-ms_white px-10 md:px-20 flex justify-between items-center py-4 fixed top-0 z-30 transition-transform duration-300  ${showNavbar ? "translate-y-0" : "-translate-y-full"
+      className={`w-full flex justify-between lg:grid lg:grid-cols-3   mx-auto bg-primary text-ms_white px-10 md:px-20  items-center py-4 fixed top-0 z-30 transition-transform duration-300  ${showNavbar ? "translate-y-0" : "-translate-y-full"
         }`}
     >
       <button
@@ -164,13 +169,9 @@ export const Header = () => {
           );
         })}
       </div>
-      <div className="hidden lg:flex gap-5">
-        <IconButton
-          icon={Search}
-          onClick={() => {
-            router.push(`/user`);
-          }}
-        />
+      <div className="hidden lg:flex gap-5  justify-end">
+
+        <SearchBar/>
         <IconButton icon={ShoppingCart} onClick={() => router.push("/cart")} />
         <IconButton
           icon={Person}

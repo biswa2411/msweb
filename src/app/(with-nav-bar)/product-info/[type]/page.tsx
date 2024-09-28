@@ -6,9 +6,11 @@ import { ShoppingBag, ShoppingCart } from "@mui/icons-material";
 import { Rating, TextField } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 const ProductInfo = () => {
+  const { type } = useParams()
   const availableSizes = [
     { name: "A4", h: 11.7, w: 8.3 },
     { name: "A1", h: 33.1, w: 23.4 },
@@ -171,7 +173,7 @@ const ProductInfo = () => {
                     <Image
                       src={item.img}
                       alt="profile image"
-                    fill
+                      fill
                       priority
                       loading="eager"
                       objectFit="cover"
@@ -245,7 +247,7 @@ const ProductInfo = () => {
 
           <div className="md:w-[50%] flex flex-col gap-2">
             <h1 className="text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold">
-              Digital Painting
+              {type == 'digital' ? '  Digital Painting' : type == 'acrylic' ? 'Acrylic Painting' : 'Sketch Art'}
             </h1>
             <h3 className="text-[#000000] text-sm  md:text-[16px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
@@ -276,7 +278,7 @@ const ProductInfo = () => {
                     }}
                     className={`font-medium  text-[12px] md:text-[16px] hover:bg-[#B88E2F] hover:text-white py-2 px-10 rounded-lg shadow-lg border  ${activeSize == name ? 'bg-[#B88E2F] text-white' : ''}`}
                   >
-                 {`${name}${name !== 'Customize' ? ` (${h} × ${w} in)` : ''}`}
+                    {`${name}${name !== 'Customize' ? ` (${h} × ${w} in)` : ''}`}
 
                   </button>
                 ))}
@@ -357,7 +359,7 @@ const ProductInfo = () => {
                 No. of Person in your photo
               </p>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-               
+
 
                 <NumberInput min={1} max={99} defaultValue={personCount} onChange={(event, newValue) => setPersonCount(newValue ?? 1)} />
               </div>
