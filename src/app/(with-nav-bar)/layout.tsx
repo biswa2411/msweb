@@ -10,7 +10,14 @@ export default function NavigationLayout({
     <section className="bg-white">
       {/* Include shared UI here e.g. a header or sidebar */}
       <Header />
-      <div className="mt-[92px]">{children}</div>
+      <div className="mt-[92px] ">{children}
+
+         
+       
+      </div>
+
+
+
       <Footer />
       <BottomNav />
     </section>

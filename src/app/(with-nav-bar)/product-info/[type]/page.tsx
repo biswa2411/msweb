@@ -1,6 +1,7 @@
 "use client";
 
 import { NumberInput } from "@components/lib/inputs/NumberInput";
+import FaqAccordion from "@components/pages/faq/FaqAccordion";
 import Shop from "@components/pages/shop";
 import { ShoppingBag, ShoppingCart } from "@mui/icons-material";
 import { Rating, TextField } from "@mui/material";
@@ -448,11 +449,21 @@ const ProductInfo = () => {
         </div>
 
         {/* Our Happy Customers  */}
-        <div className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold">
+        <div className="flex justify-center items-center text-[#000000] text-[16px] md:text-[26px] lg:text-[32px] font-bold mb-10">
           Related Product
         </div>
       </div>
       <Shop />
+
+      <div className='py-10 w-full gap-3 md:gap-10 bg-white flex flex-col justify-center items-center text-primary'>
+            <h1 className='text-[16px] md:text-[26px] lg:text-[32px] font-bold'>
+              FAQs
+            </h1>
+            <div className='w-full'>
+
+            <FaqAccordion/>
+            </div>
+        </div>
 
 
     </div>
