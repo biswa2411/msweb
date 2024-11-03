@@ -23,7 +23,7 @@ export default function NavigationLayout({
   return (
     <section className="relative flex flex-row p-2 md:p-5 gap-2 ">
 
-      <div className="sticky top-24 flex flex-col gap-5 justify-center items-center h-fit bg-white w-1/6 shadow-custom rounded-xl overflow-auto">
+      <div className=" sticky top-24 flex flex-col gap-5 justify-center items-center h-fit bg-white w-1/6 md:shadow-custom rounded-xl overflow-auto">
         <div className="relative">
           <Image
             src={
@@ -38,16 +38,16 @@ export default function NavigationLayout({
         <div className="text-primary text-center font-bold text-[16px] md:text-[24px]">
           John Perry
         </div>
-        <ul className="w-[70px] md:w-full">
+        <ul className="flex flex-col gap-5">
           {profileSidebar.map(({ link, icon, Title }, key) => (
             <li
               key={key}
-              className={`mb-5 w-full px-5 py-2 hover:border-l-4 border-primary ${router === link ? "text-primary border-l-4" : "text-gray-300"
+              className={`px-2 pb-3 hover:border-l-4 border-primary ${router === link ? "text-primary border-l-4" : "text-gray-300"
                 }`}
             >
               <Link
                 href={link}
-                className="hover:text-primary font-semibold text-[20px] flex gap-3 "
+                className="hover:text-primary font-semibold flex gap-3 "
               >
                 <Image
                   src={icon}
