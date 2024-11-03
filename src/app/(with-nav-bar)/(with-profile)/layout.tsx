@@ -21,7 +21,7 @@ export default function NavigationLayout({
   ];
 
   return (
-    <section className="relative flex flex-row p-2 md:p-5 gap-2 h-screen ">
+    <section className="relative flex flex-row p-2 md:p-5 gap-2 ">
 
       <div className="sticky top-24 flex flex-col gap-5 justify-center items-center h-fit bg-white w-1/6 shadow-custom rounded-xl overflow-auto">
         <div className="relative">
@@ -34,15 +34,6 @@ export default function NavigationLayout({
             width={150}
             className="rounded-full shadow-lg"
           />
-          <button className="absolute -bottom-2 -right-2 hover:shadow-sm">
-            <Image
-              src="/cameraIcon.svg"
-              alt="profile image"
-              height={35}
-              width={35}
-              className="rounded-full"
-            />
-          </button>
         </div>
         <div className="text-primary text-center font-bold text-[16px] md:text-[24px]">
           John Perry
