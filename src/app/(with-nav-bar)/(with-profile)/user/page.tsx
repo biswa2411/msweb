@@ -136,10 +136,6 @@ const Profile = () => {
           <h2 className="text-[16px] md:text-[22px] lg:text-[32px] text-[#0E2920] font-bold">
             Billing Address
           </h2>
-          <div onClick={() => handleToggle()} className="flex justify-center items-center gap-1 py-1 px-2 rounded-[4px] border-[1px] cursor cursor-pointer border-[#0E2920]">
-            <img src="/editIcon.svg" className="" width={18} height={18} />
-            <button className="text-[#0E2920]">Edit</button>
-          </div>
         </div>
         <div>
           <div className="flex md:justify-start md:items-start flex-col md:flex-row lg:mr-[20%]">
