@@ -134,7 +134,7 @@ export const Header = () => {
         <MenuIcon />
       </button>
       <button
-        className="relative cursor-pointer shadow-custom rounded-full"
+        className="relative cursor-pointer shadow-custom rounded-full w-fit"
         onClick={() => router.push("/")}
       >
         <Image
