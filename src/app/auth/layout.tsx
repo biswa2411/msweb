@@ -42,8 +42,8 @@ export default function DashboardLayout({
           <Close fontSize='medium'/>
         </button>}
         <Image
-          width={150}
-          height={150}
+          width={100}
+          height={100}
           className="shadow-custom rounded-full"
           style={{ objectFit: 'cover' }}
           src="/logo.svg"

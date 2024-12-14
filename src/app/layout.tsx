@@ -3,6 +3,7 @@ import { Montserrat, } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@components/lib/GoogleAnalytics";
+import { ApolloWrapper } from "@services/apollo/ApolloWrapper";
 
 
 const montserrat = Montserrat({
@@ -24,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${montserrat.className} `}>
       <head><link rel="icon" href="/logo.svg" sizes="any" /></head>
-      <GoogleAnalytics/>
-      <body>{children}</body>
+      <GoogleAnalytics />
+      <body> 
+        <ApolloWrapper>{children}</ApolloWrapper>
+        </body>
       <Analytics />
     </html>
   );
