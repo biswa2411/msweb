@@ -1,115 +1,143 @@
 import * as React from 'react';
-import { Unstable_NumberInput as BaseNumberInput, NumberInputProps } from '@mui/base'; // Updated import
+import {
+  Unstable_NumberInput as BaseNumberInput,
+  NumberInputProps,
+} from '@mui/base/Unstable_NumberInput';
 import { styled } from '@mui/system';
-import { Remove as RemoveIcon, Add as AddIcon } from '@mui/icons-material';
+import RemoveIcon from '@mui/icons-material/Remove';
+import AddIcon from '@mui/icons-material/Add';
 
-// Move colors to a separate constants file if used across components
-const COLORS = {
-  golden: { 500: '#B88E2F' },
-  grey: {
-    50: '#F3F6F9',
-    100: '#E5EAF2',
-    200: '#DAE2ED',
-    300: '#C7D0DD',
-    400: '#B0B8C4',
-    500: '#9DA8B7',
-    600: '#6B7A90',
-    700: '#434D5B',
-    800: '#303740',
-    900: '#1C2025',
-  }
-} as const;
+export const NumberInput = React.forwardRef(function CustomNumberInput(
+  props: NumberInputProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
 
-// Common styles that can be reused
-const commonStyles = {
-  fontFamily: "'IBM Plex Sans', sans-serif",
-  transition: 'all 120ms cubic-bezier(0.4, 0, 0.2, 1)',
-  focusVisible: { outline: 0 }
+) {
+  return (
+    <BaseNumberInput
+      slots={{
+        root: StyledInputRoot,
+        input: StyledInput,
+        incrementButton: StyledButton,
+        decrementButton: StyledButton,
+      }}
+      slotProps={{
+        incrementButton: {
+          children: <AddIcon fontSize="small" />,
+          className: 'increment',
+        },
+        decrementButton: {
+          children: <RemoveIcon fontSize="small" />,
+        },
+      }}
+      {...props}
+      ref={ref}
+   
+    />
+  );
+});
+
+// export default function QuantityInput() {
+//   return <NumberInput aria-label="Quantity Input" min={1} max={99} />;
+// }
+
+const golden = {
+  500: '#B88E2F'
+}
+
+const grey = {
+  50: '#F3F6F9',
+  100: '#E5EAF2',
+  200: '#DAE2ED',
+  300: '#C7D0DD',
+  400: '#B0B8C4',
+  500: '#9DA8B7',
+  600: '#6B7A90',
+  700: '#434D5B',
+  800: '#303740',
+  900: '#1C2025',
 };
 
-const StyledInputRoot = styled('div')(({ theme }) => ({
-  ...commonStyles,
-  fontWeight: 400,
-  color: theme.palette.mode === 'dark' ? COLORS.grey[300] : COLORS.grey[500],
-  display: 'flex',
-  flexFlow: 'row nowrap',
-  justifyContent: 'center',
-  alignItems: 'center',
-}));
+const StyledInputRoot = styled('div')(
+  ({ theme }) => `
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[500]};
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+`,
+);
 
-const StyledInput = styled('input')(({ theme }) => ({
-  ...commonStyles,
-  fontSize: '0.875rem',
-  fontWeight: 400,
-  lineHeight: 1.375,
-  color: theme.palette.mode === 'dark' ? COLORS.grey[300] : COLORS.grey[900],
-  background: theme.palette.mode === 'dark' ? COLORS.grey[900] : '#fff',
-  border: `1px solid ${theme.palette.mode === 'dark' ? COLORS.grey[700] : COLORS.grey[200]}`,
-  boxShadow: `0px 2px 4px ${theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'}`,
-  borderRadius: 8,
-  margin: '0 8px',
-  padding: '10px 12px',
-  minWidth: 0,
-  width: '4rem',
-  textAlign: 'center',
-  
-  '&:hover, &:focus': {
-    borderColor: COLORS.golden[500],
-  },
-  
-  '&:focus': {
-    boxShadow: `0 0 0 3px ${COLORS.golden[500]}`,
+const StyledInput = styled('input')(
+  ({ theme }) => `
+  font-size: 0.875rem;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.375;
+  color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
+  background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+  border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
+  box-shadow: 0px 2px 4px ${
+    theme.palette.mode === 'dark' ? 'rgba(0,0,0, 0.5)' : 'rgba(0,0,0, 0.05)'
+  };
+  border-radius: 8px;
+  margin: 0 8px;
+  padding: 10px 12px;
+  outline: 0;
+  min-width: 0;
+  width: 4rem;
+  text-align: center;
+
+  &:hover {
+    border-color: ${golden[500]};
   }
-}));
 
-const StyledButton = styled('button')(({ theme }) => ({
-  ...commonStyles,
-  fontSize: '0.875rem',
-  lineHeight: 1.5,
-  border: '1px solid',
-  borderRadius: 999,
-  borderColor: theme.palette.mode === 'dark' ? COLORS.grey[800] : COLORS.grey[200],
-  background: theme.palette.mode === 'dark' ? COLORS.grey[900] : COLORS.grey[50],
-  color: theme.palette.mode === 'dark' ? COLORS.grey[200] : COLORS.grey[900],
-  width: 32,
-  height: 32,
-  display: 'flex',
-  flexFlow: 'row nowrap',
-  justifyContent: 'center',
-  alignItems: 'center',
-
-  '&:hover': {
-    cursor: 'pointer',
-    background: COLORS.golden[500],
-    borderColor: COLORS.golden[500],
-    color: COLORS.grey[50],
-  },
-
-  '&.increment': {
-    order: 1,
+  &:focus {
+    border-color: ${golden[500]};
+    box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
   }
-}));
 
-export const NumberInput = React.forwardRef<HTMLDivElement, NumberInputProps>((props, ref) => (
-  <BaseNumberInput
-    slots={{
-      root: StyledInputRoot,
-      input: StyledInput,
-      incrementButton: StyledButton,
-      decrementButton: StyledButton,
-    }}
-    slotProps={{
-      incrementButton: {
-        children: <AddIcon fontSize="small" />,
-        className: 'increment',
-      },
-      decrementButton: {
-        children: <RemoveIcon fontSize="small" />,
-      },
-    }}
-    {...props}
-    ref={ref}
-  />
-));
+  &:focus-visible {
+    outline: 0;
+  }
+`,
+);
 
-NumberInput.displayName = 'NumberInput';
+const StyledButton = styled('button')(
+  ({ theme }) => `
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+  line-height: 1.5;
+  border: 1px solid;
+  border-radius: 999px;
+  border-color: ${theme.palette.mode === 'dark' ? grey[800] : grey[200]};
+  background: ${theme.palette.mode === 'dark' ? grey[900] : grey[50]};
+  color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
+  width: 32px;
+  height: 32px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 120ms;
+
+  &:hover {
+    cursor: pointer;
+    background: ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
+    border-color: ${theme.palette.mode === 'dark' ? golden[500] : golden[500]};
+    color: ${grey[50]};
+  }
+
+  &:focus-visible {
+    outline: 0;
+  }
+
+  &.increment {
+    order: 1;
+  }
+`,
+);
