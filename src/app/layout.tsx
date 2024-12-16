@@ -4,6 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import GoogleAnalytics from "@components/lib/GoogleAnalytics";
 import { ApolloWrapper } from "@services/apollo/ApolloWrapper";
+import { ToastContainer } from "react-toastify";
 
 
 const montserrat = Montserrat({
@@ -26,9 +27,21 @@ export default function RootLayout({
     <html lang="en" className={`${montserrat.className} `}>
       <head><link rel="icon" href="/logo.svg" sizes="any" /></head>
       <GoogleAnalytics />
-      <body> 
+      <body>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark" // or "light"
+        />
         <ApolloWrapper>{children}</ApolloWrapper>
-        </body>
+      </body>
       <Analytics />
     </html>
   );

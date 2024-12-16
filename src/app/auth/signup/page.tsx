@@ -51,10 +51,12 @@ const SignupPage = (): JSX.Element => {
           mobile: newUser.mobile,
           username: newUser.username,
           password1: newUser.password1,
-          password2: newUser.password2
+          password2: newUser.password2,
+          firstName: newUser.firstName,
+          lastName: newUser.lastName
         }
       });
-      console.log("Registration response:", response);
+      alert( response);
       // Add success handling here
     } catch (error) {
       console.error("Registration error:", error);
