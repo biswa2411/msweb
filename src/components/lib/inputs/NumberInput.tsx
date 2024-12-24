@@ -1,38 +1,63 @@
 import * as React from 'react';
-import {
-  Unstable_NumberInput as BaseNumberInput,
-  NumberInputProps,
-} from '@mui/base/Unstable_NumberInput';
 import { styled } from '@mui/system';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
-export const NumberInput = React.forwardRef(function CustomNumberInput(
-  props: NumberInputProps,
-  ref: React.ForwardedRef<HTMLDivElement>,
+interface CustomNumberInputProps {
+  value?: number;
+  defaultValue?: number;
+  onChange?: (value: number | undefined) => void;
+  min?: number;
+  max?: number;
+  disabled?: boolean;
+  'aria-label'?: string;
+}
 
+export const NumberInput = React.forwardRef(function CustomNumberInput(
+  props: CustomNumberInputProps,
+  ref: React.ForwardedRef<HTMLDivElement>,
 ) {
+  const { value: controlledValue, defaultValue = 0, onChange, min, max, disabled, ...other } = props;
+  const [internalValue, setInternalValue] = React.useState<number>(defaultValue);
+  
+  const value = controlledValue !== undefined ? controlledValue : internalValue;
+
+  const handleChange = (newValue: number) => {
+    if (min !== undefined && newValue < min) return;
+    if (max !== undefined && newValue > max) return;
+    
+    setInternalValue(newValue);
+    onChange?.(newValue);
+  };
+
   return (
-    <BaseNumberInput
-      slots={{
-        root: StyledInputRoot,
-        input: StyledInput,
-        incrementButton: StyledButton,
-        decrementButton: StyledButton,
-      }}
-      slotProps={{
-        incrementButton: {
-          children: <AddIcon fontSize="small" />,
-          className: 'increment',
-        },
-        decrementButton: {
-          children: <RemoveIcon fontSize="small" />,
-        },
-      }}
-      {...props}
-      ref={ref}
-   
-    />
+    <StyledInputRoot ref={ref} {...other}>
+      <StyledButton 
+        onClick={() => handleChange(value - 1)}
+        disabled={disabled || (min !== undefined && value <= min)}
+        type="button"
+      >
+        <RemoveIcon fontSize="small" />
+      </StyledButton>
+      
+      <StyledInput
+        type="number"
+        value={value}
+        onChange={(e) => handleChange(Number(e.target.value))}
+        disabled={disabled}
+        min={min}
+        max={max}
+      />
+      
+      <StyledButton 
+        onClick={() => handleChange(value + 1)}
+        disabled={disabled || (max !== undefined && value >= max)}
+        type="button"
+        className="increment"
+      >
+        <AddIcon fontSize="small" />
+      </StyledButton>
+    </StyledInputRoot>
   );
 });
 

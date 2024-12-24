@@ -154,9 +154,9 @@ export const Header = () => {
             <button
               key={index}
               onClick={() => router.push(path)}
-              className="group relative h-10 inline-block overflow-hidden rounded w-24 text-sm font-medium"
+              className="group relative h-10 inline-block overflow-hidden rounded w-24  font-medium"
             >
-              {title}
+              <p className="text-[10px]">{title}</p>
               <span
                 className={`ease absolute left-0 top-0 h-0 w-0 border-t-2 border-ms_white transition-all duration-200 ${isActive ? "w-full" : "group-hover:w-full"
                   }`}

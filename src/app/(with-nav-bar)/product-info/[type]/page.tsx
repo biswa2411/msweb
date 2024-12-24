@@ -362,7 +362,7 @@ const ProductInfo = () => {
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
 
 
-                <NumberInput min={1} max={99} defaultValue={personCount} onChange={(event, newValue) => setPersonCount(newValue ?? 1)} />
+                <NumberInput min={1} max={99} defaultValue={personCount} onChange={( newValue) => setPersonCount(newValue ?? 1)} />
               </div>
             </div>
 
