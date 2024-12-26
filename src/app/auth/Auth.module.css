@@ -8,7 +8,7 @@
     @apply bg-[#1e342c] rounded-md p-2 flex flex-row gap-4 items-start justify-start w-full h-10 overflow-hidden
 }
 .final-btn{
-    @apply bg-[#fff3e3] hover:bg-[#ded6cc] active:bg-[#bfb5a9] rounded-md py-4 px-6  flex flex-col  items-center justify-center w-full h-8  overflow-hidden cursor-pointer
+    @apply bg-[#fff3e3] hover:bg-[#ded6cc] active:bg-[#bfb5a9] rounded-md  px-6  flex flex-col  items-center justify-center w-full h-8  overflow-hidden cursor-pointer
 }
 .btn-text{
     @apply text-[#0e2920] text-left font-['InstagramSans-Bold',_sans-serif] text-base font-bold uppercase relative
