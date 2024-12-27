@@ -8,21 +8,21 @@ import React from "react";
 const Shop = () => {
   const shoppingItems = [
     {
+      img: "/acrylic.jpg",
+      paintingType: "Acrylic Painting",
+      path: "acrylic",
+      price: "1000",
+      id: "1",
+    },
+    {
       img: "/auth/auth1.jpg",
       paintingType: "Digital Painting",
       path: "digital",
       price: "600",
-      id: "1",
-    },
-    {
-      img: "acrylic.jpg",
-      paintingType: "Acrylic Painting",
-      path: "acrylic",
-      price: "1000",
       id: "2",
-    },
+    },   
     {
-      img: "sketch.jpg",
+      img: "/sketch.jpg",
       paintingType: "Sketch Art",
       price: "1200",
       path: "sketch",
