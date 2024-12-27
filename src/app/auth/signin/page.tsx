@@ -20,6 +20,9 @@ const SignInPage = ({ className, ...props }: any): JSX.Element => {
   const [singIn ,{loading, error, data}] = useMutation(LOGIN)
 
   const handleSignIn = async () => {
+    // Show loading toast
+    const toastId = toast.loading("Signing in...");
+
     try {
       const emailPattern = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
       
@@ -28,9 +31,6 @@ const SignInPage = ({ className, ...props }: any): JSX.Element => {
       
       // Determine the type of input
       const input = isEmail ? 'email' : 'username';
-  
-      // Show loading toast
-      const toastId = toast.loading("Signing in...");
   
       const response = await singIn({
         variables: { password, [input]: emailOrUsername }
@@ -55,13 +55,16 @@ const SignInPage = ({ className, ...props }: any): JSX.Element => {
       }
   
     } catch (err:any) {
-      toast.error(err.message || 'Something went wrong!', {
+      toast.update(toastId, {
+        render: 'Something went wrong!',
+        type: "error",
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
-        draggable: true
+        draggable: true,
+        isLoading: false,
       });
     }
   }
