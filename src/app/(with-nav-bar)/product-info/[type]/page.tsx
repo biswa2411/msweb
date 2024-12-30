@@ -384,7 +384,7 @@ const ProductInfo = () => {
               htmlFor="file-upload"
               className="flex justify-center items-center py-[10%] px-10 mt-7 rounded-lg shadow-lg border border-gray-300 cursor-pointer gap-2"
             >
-              <img
+              <Image
                 src={"/fileUpload.svg"}
                 alt="profile image"
                 height={30}
