@@ -48,7 +48,7 @@ const StyledTextField = (props: any) => {
             },
         },
         '& .MuiInputLabel-shrink': {
-            color: 'red',
+            color: '#2F463E',
             fontWeight: 'bold',
         },
     };
